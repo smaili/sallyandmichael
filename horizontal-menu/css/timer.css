@@ -1,0 +1,164 @@
+html, body {
+	height: 100%;
+}
+html {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+body {
+	background-position: center;
+	background-repeat: repeat;
+	font-family: 'Roboto', sans-serif;
+}
+.countdown-container {
+	position: relative;
+	top: 180px;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.wrap {
+	height: 145px;
+	width: 145px;
+	text-align: center;
+	display: inline-block;
+}
+.clock {
+	width: 100%;
+	text-align: center;
+}
+.clock-item {
+	width: 16%;
+	display: inline-block;
+}
+.clock-item .inner {
+	height: 0px;
+	padding-bottom: 100%;
+	position: relative;
+	width: 100%;
+}
+.clock-canvas {
+	background-color: rgba(255, 255, 255, .1);
+	border-radius: 50%;
+	height: 0px;
+	padding-bottom: 100%;
+}
+.text {
+	color: #fff;
+	margin-top: -66px;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	width: 100%;
+}
+.text .val {
+	font-size: 72px;
+	font-weight: 300;
+	margin: 0px;
+}
+.text .type-time {
+	font-size: 16px;
+	text-transform: capitalize;
+	font-weight: 300;
+	margin: -10px;
+}
+ @media screen and (max-width: 1600px) {
+.wrap {
+	height: 138px;
+	width: 138px;
+}
+.text .val {
+	font-size: 64px;
+}
+.text {
+	top: 57%;
+}
+}
+ @media screen and (max-width: 1366px) {
+.wrap {
+	height: 130px;
+	width: 130px;
+}
+.text {
+	top: 59%;
+}
+.text .val {
+	font-size: 60px;
+}
+.clock-item {
+	width: 14%;
+}
+}
+ @media screen and (max-width: 1024px) {
+.wrap {
+	height: 120px;
+	width: 120px;
+}
+.text .val {
+	font-size: 56px;
+}
+.text {
+	top: 62%;
+}
+.countdown-container {
+	position: relative;
+	top: 118px;
+}
+}
+ @media (min-width: 768px) and (max-width: 991px) {
+.clock-item {
+	margin-bottom: 30px;
+}
+}
+ @media screen and (max-width: 980px) {
+.clock-item {
+	width: 21%;
+}
+}
+ @media (max-width: 767px) {
+.clock-item {
+	margin: 0px 15px 15px 15px;
+}
+.clock {
+	margin: 0 !important;
+	text-align: center;
+}
+.clock-item {
+	width: 14%;
+}
+.text .val {
+	font-size: 50px;
+}
+.text .type-time {
+	font-size: 14px;
+}
+.text {
+	top: 67%;
+}
+}
+ @media screen and (max-width: 736px) {
+.clock-item {
+	width: 11%;
+}
+}
+ @media screen and (max-width: 640px) {
+.clock-item {
+	width: 11%;
+}
+}
+ @media screen and (max-width: 568px) {
+.clock-item {
+	width: 10%;
+}
+}
+ @media screen and (max-width: 480px) {
+.clock-item {
+	width: 13%;
+}
+}
+ @media screen and (max-width: 375px) {
+.clock-item {
+	width: 12%;
+}
+}

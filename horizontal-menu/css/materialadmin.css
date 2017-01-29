@@ -1,0 +1,548 @@
+.input-group-addon {
+	border-color: transparent;
+	background-color: transparent;
+	color: inherit;
+	opacity: 0.7;
+}
+.input-group-addon, .input-group-btn {
+	padding-left: 10px;
+}
+.input-group-addon:first-child, .input-group-btn:first-child {
+	padding-left: 0;
+	padding-right: 10px;
+}
+.input-group-addon:last-child, .input-group-btn:last-child {
+	padding-right: 0;
+}
+.input-group-addon .btn-floating-action, .input-group-btn .btn-floating-action {
+	margin-top: -7px;
+}
+.input-group-addon .btn-floating-action.btn-lg, .input-group-btn .btn-floating-action.btn-lg {
+	margin-top: -19px;
+}
+.input-group-content {
+	position: relative;
+	display: table-cell;
+	vertical-align: bottom;
+}
+.input-group .form-control-static {
+	display: table-cell;
+}
+.input-group .form-control-static:not(:first-child):not(:last-child) {
+	border-radius: 0;
+}
+.input-group .form-control-static:first-child {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+.input-group .form-control-static:last-child {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+.form .form-group .input-group {
+	margin-top: -16px;
+}
+.form .form-group .input-group-content, .form .form-group .input-group-addon, .form .form-group .input-group-btn {
+	padding-top: 16px;
+}
+.form .form-group .input-group-addon {
+	vertical-align: bottom;
+}
+.form .form-group .input-group-addon:first-child {
+	min-width: 42px;
+	text-align: left;
+}
+legend {
+	display: table;
+	width: 100%;
+	margin: 13px 0 20px 0;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+}
+legend span {
+	display: table-cell;
+	padding: 0 10px 0 0;
+	position: relative;
+	bottom: -7px;
+	white-space: nowrap;
+	opacity: 0.8;
+}
+legend:before, legend:after {
+	content: '';
+	display: table-cell;
+	border-bottom: 1px solid rgba(12, 12, 12, 0.25);
+}
+legend:before {
+	width: 0%;
+}
+legend:after {
+	width: 100%;
+}
+legend.text-center span {
+	padding: 0 10px;
+}
+legend.text-center:before, legend.text-center:after {
+	width: 50%;
+}
+legend.text-right span {
+	padding: 0 0 0 10px;
+}
+legend.text-right:before {
+	width: 100%;
+}
+legend.text-right:after {
+	width: 0%;
+}
+label {
+	font-weight: 400;
+}
+.form-group > label, .form-group .control-label {
+	font-size: 12px;
+	opacity: 0.5;
+	margin-bottom: 0;
+}
+.form .form-group > label, .form-inline .form-group > label {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.form-control-static {
+	font-size: 16px;
+}
+.has-feedback label ~ .form-control-feedback, .form-control-feedback {
+	top: auto;
+	bottom: 0;
+}
+.form-control {
+	padding: 0;
+	height: 37px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom-color: rgba(12, 12, 12, 0.12);
+	background: transparent;
+	color: #0c0c0c;
+	font-size: 14px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.form-control.placeholder {
+	color: #969c9c;
+}
+.form-control.placeholder option {
+	color: #0c0c0c;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	background-color: transparent;
+	border-bottom-color: rgba(12, 12, 12, 0.2);
+	border-bottom-style: dashed;
+}
+ .form-control[disabled]::-moz-placeholder, .form-control[readonly]::-moz-placeholder, fieldset[disabled] .form-control::-moz-placeholder {
+ color: #b0b5b4;
+ opacity: 1;
+}
+ .form-control[disabled]:-ms-input-placeholder, .form-control[readonly]:-ms-input-placeholder, fieldset[disabled] .form-control:-ms-input-placeholder {
+ color: #b0b5b4;
+}
+ .form-control[disabled]::-webkit-input-placeholder, .form-control[readonly]::-webkit-input-placeholder, fieldset[disabled] .form-control::-webkit-input-placeholder {
+ color: #b0b5b4;
+}
+.form-control[disabled] ~ label:after, .form-control[readonly] ~ label:after, fieldset[disabled] .form-control ~ label:after, .form-control[disabled] ~ .form-control-line:after, .form-control[readonly] ~ .form-control-line:after, fieldset[disabled] .form-control ~ .form-control-line:after {
+	display: none;
+}
+textarea.form-control {
+	padding: 4px 0 4px 0;
+}
+textarea.autosize {
+	min-height: 38px;
+}
+.form .form-group, .form-inline .form-group {
+	padding-top: 16px;
+}
+.form-group {
+	position: relative;
+}
+.form-group .form-control:not(.static) ~ label, .form-group .form-control:not(.static) ~ .form-control-line {
+	-webkit-transition: 0.2s ease all;
+	-o-transition: 0.2s ease all;
+	transition: 0.2s ease all;
+	color: #000;
+	font-weight: 400;
+}
+.form-group .form-control ~ label, .form-group .form-control ~ .form-control-line {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	pointer-events: none;
+}
+.form-group .form-control ~ label:after, .form-group .form-control ~ .form-control-line:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 45%;
+	height: 2px;
+	width: 10px;
+	visibility: hidden;
+	background-color: #0aa89e;
+	-webkit-transition: 0.2s ease all;
+	-o-transition: 0.2s ease all;
+	transition: 0.2s ease all;
+}
+.form-group .form-control ~ label {
+	top: 0;
+	margin-bottom: 0;
+	font-size: 12px;
+	opacity: 0.5;
+}
+.form-group .form-control:focus {
+	border-color: rgba(12, 12, 12, 0.12);
+}
+.form-group .form-control:focus ~ label {
+	color: #0aa89e;
+	opacity: 1;
+}
+.form-group .form-control:focus ~ label:after, .form-group .form-control:focus ~ .form-control-line:after {
+	visibility: visible;
+	width: 100%;
+	left: 0;
+}
+.floating-label .form-control ~ label {
+	top: 19px;
+	font-size: 16px;
+}
+.floating-label .form-control:focus ~ label, .floating-label .form-control.dirty ~ label {
+	top: 0px;
+	font-size: 12px !important;
+}
+.input-sm {
+	height: 30px;
+	padding: 0 0;
+	font-size: 1em;
+	line-height: 1.5;
+	border-radius: 0px;
+}
+select.input-sm {
+	height: 30px;
+	line-height: 30px;
+}
+textarea.input-sm, select[multiple].input-sm {
+	height: auto;
+}
+select.input-sm {
+	height: 30px;
+	line-height: 30px;
+}
+textarea.input-sm, select[multiple].input-sm {
+	height: auto;
+}
+.floating-label .input-sm ~ label {
+	font-size: 1em;
+}
+.input-lg {
+	height: 45px;
+	padding: 0 0;
+	font-size: 1.6em;
+	line-height: 1.3333333;
+	border-radius: 2px;
+}
+select.input-lg {
+	height: 45px;
+	line-height: 45px;
+}
+textarea.input-lg, select[multiple].input-lg {
+	height: auto;
+}
+select.input-lg {
+	height: 45px;
+	line-height: 45px;
+}
+textarea.input-lg, select[multiple].input-lg {
+	height: auto;
+}
+.floating-label .input-lg ~ label {
+	font-size: 1.6em;
+}
+.form-group.control-width-tiny {
+	max-width: 40px;
+}
+.form-group.control-width-mini {
+	max-width: 72px;
+}
+.form-group.control-width-small {
+	max-width: 136px;
+}
+.form-group.control-width-medium {
+	max-width: 200px;
+}
+.form-group.control-width-normal {
+	max-width: 300px;
+}
+.form-group.control-width-large {
+	max-width: 500px;
+}
+.form-group.control-width-xlarge {
+	max-width: 800px;
+}
+.form-group.control-width-xxlarge {
+	max-width: 1200px;
+}
+textarea.control-2-rows {
+	height: 64px;
+}
+textarea.control-3-rows {
+	height: 96px;
+}
+textarea.control-4-rows {
+	height: 128px;
+}
+textarea.control-5-rows {
+	height: 160px;
+}
+textarea.control-6-rows {
+	height: 192px;
+}
+textarea.control-7-rows {
+	height: 224px;
+}
+textarea.control-8-rows {
+	height: 256px;
+}
+textarea.control-9-rows {
+	height: 288px;
+}
+textarea.control-10-rows {
+	height: 320px;
+}
+textarea.control-11-rows {
+	height: 352px;
+}
+textarea.control-12-rows {
+	height: 384px;
+}
+textarea.no-resize {
+	resize: none;
+}
+.form-horizontal .form-group {
+	padding-top: 0;
+	margin-bottom: 11px;
+}
+.form-horizontal .form-control ~ .form-control-line {
+	left: 12px;
+	right: 12px;
+	width: auto;
+}
+.form-horizontal .input-group .form-control ~ .form-control-line {
+	left: 0;
+	right: 0;
+}
+ @media (min-width: 769px) {
+.form-inline .form-group {
+	margin-right: 12px;
+}
+.form-inline .radio, .form-inline .checkbox, .form-inline .btn {
+	margin-top: 16px;
+	margin-right: 12px;
+}
+}
+.help-block {
+	position: absolute;
+	right: 0;
+	bottom: -20px;
+	margin: 0;
+	color: inherit;
+	opacity: .7;
+	font-size: 12px;
+}
+.form-horizontal .help-block {
+	bottom: -20px;
+	right: 10px;
+}
+span.help-block {
+	right: auto;
+}
+.form-horizontal span.help-block {
+	right: auto;
+}
+.form-inverse .form-group .form-control {
+	color: #f2f3f3;
+	border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+ .form-inverse .form-group .form-control::-moz-placeholder {
+ color: rgba(255, 255, 255, 0.5);
+ opacity: 1;
+}
+ .form-inverse .form-group .form-control:-ms-input-placeholder {
+ color: rgba(255, 255, 255, 0.5);
+}
+ .form-inverse .form-group .form-control::-webkit-input-placeholder {
+ color: rgba(255, 255, 255, 0.5);
+}
+.form-inverse .form-group .form-control ~ label:after, .form-inverse .form-group .form-control ~ .form-control-line:after {
+	background-color: #a6ede8;
+}
+.form-inverse .form-group .form-control:focus {
+	border-color: rgba(255, 255, 255, 0.25);
+}
+.form-inverse .form-group .form-control:focus ~ label {
+	color: #a6ede8;
+}
+.form-inverse .form-group .form-control[disabled], .form-inverse .form-group .form-control[readonly], fieldset[disabled] .form-inverse .form-group .form-control {
+	border-bottom-color: rgba(255, 255, 255, 0.4);
+}
+.form-inverse select:focus {
+	background: #ffffff;
+	color: #313534 !important;
+}
+.has-warning .help-block {
+	color: #ff9800;
+	opacity: 1;
+}
+.has-warning .form-control {
+	border-bottom-color: #ff9800;
+}
+.has-warning .form-control:focus, .has-warning .form-control.dirty {
+	border-bottom-color: #ff9800;
+}
+.has-warning .form-control:focus ~ label, .has-warning .form-control.dirty ~ label {
+	color: inherit;
+}
+.has-warning .form-control ~ label, .has-warning .form-control ~ .form-control-line {
+	color: inherit;
+}
+.has-warning .form-control ~ label:after, .has-warning .form-control ~ .form-control-line:after {
+	background-color: #ff9800;
+}
+.has-warning label, .has-warning .control-label, .has-warning .form-control-feedback {
+	color: #ff9800;
+}
+.form-horizontal .has-warning label, .form-horizontal .has-warning .control-label, .form-horizontal .has-warning .form-control-feedback {
+	opacity: 1;
+}
+.form-inverse .has-warning .help-block {
+	color: #e69c2e;
+	opacity: 1;
+}
+.form-inverse .has-warning .form-control {
+	border-bottom-color: #e69c2e;
+}
+.form-inverse .has-warning .form-control:focus, .form-inverse .has-warning .form-control.dirty {
+	border-bottom-color: #e69c2e;
+}
+.form-inverse .has-warning .form-control:focus ~ label, .form-inverse .has-warning .form-control.dirty ~ label {
+	color: inherit;
+}
+.form-inverse .has-warning .form-control ~ label, .form-inverse .has-warning .form-control ~ .form-control-line {
+	color: inherit;
+}
+.form-inverse .has-warning .form-control ~ label:after, .form-inverse .has-warning .form-control ~ .form-control-line:after {
+	background-color: #e69c2e;
+}
+.form-inverse .has-warning label, .form-inverse .has-warning .control-label, .form-inverse .has-warning .form-control-feedback {
+	color: #e69c2e;
+}
+.form-horizontal .form-inverse .has-warning label, .form-horizontal .form-inverse .has-warning .control-label, .form-horizontal .form-inverse .has-warning .form-control-feedback {
+	opacity: 1;
+}
+.has-error .help-block {
+	color: #f44336;
+	opacity: 1;
+}
+.has-error .form-control {
+	border-bottom-color: #f44336;
+}
+.has-error .form-control:focus, .has-error .form-control.dirty {
+	border-bottom-color: #f44336;
+}
+.has-error .form-control:focus ~ label, .has-error .form-control.dirty ~ label {
+	color: inherit;
+}
+.has-error .form-control ~ label, .has-error .form-control ~ .form-control-line {
+	color: inherit;
+}
+.has-error .form-control ~ label:after, .has-error .form-control ~ .form-control-line:after {
+	background-color: #f44336;
+}
+.has-error label, .has-error .control-label, .has-error .form-control-feedback {
+	color: #f44336;
+}
+.form-horizontal .has-error label, .form-horizontal .has-error .control-label, .form-horizontal .has-error .form-control-feedback {
+	opacity: 1;
+}
+.form-inverse .has-error .help-block {
+	color: #e65045;
+	opacity: 1;
+}
+.form-inverse .has-error .form-control {
+	border-bottom-color: #e65045;
+}
+.form-inverse .has-error .form-control:focus, .form-inverse .has-error .form-control.dirty {
+	border-bottom-color: #e65045;
+}
+.form-inverse .has-error .form-control:focus ~ label, .form-inverse .has-error .form-control.dirty ~ label {
+	color: inherit;
+}
+.form-inverse .has-error .form-control ~ label, .form-inverse .has-error .form-control ~ .form-control-line {
+	color: inherit;
+}
+.form-inverse .has-error .form-control ~ label:after, .form-inverse .has-error .form-control ~ .form-control-line:after {
+	background-color: #e65045;
+}
+.form-inverse .has-error label, .form-inverse .has-error .control-label, .form-inverse .has-error .form-control-feedback {
+	color: #e65045;
+}
+.form-horizontal .form-inverse .has-error label, .form-horizontal .form-inverse .has-error .control-label, .form-horizontal .form-inverse .has-error .form-control-feedback {
+	opacity: 1;
+}
+.has-success .help-block {
+	color: #4caf50;
+	opacity: 1;
+}
+.has-success .form-control {
+	border-bottom-color: #4caf50;
+}
+.has-success .form-control:focus, .has-success .form-control.dirty {
+	border-bottom-color: #4caf50;
+}
+.has-success .form-control:focus ~ label, .has-success .form-control.dirty ~ label {
+	color: inherit;
+}
+.has-success .form-control ~ label, .has-success .form-control ~ .form-control-line {
+	color: inherit;
+}
+.has-success .form-control ~ label:after, .has-success .form-control ~ .form-control-line:after {
+	background-color: #4caf50;
+}
+.has-success label, .has-success .control-label, .has-success .form-control-feedback {
+	color: #4caf50;
+}
+.form-horizontal .has-success label, .form-horizontal .has-success .control-label, .form-horizontal .has-success .form-control-feedback {
+	opacity: 1;
+}
+.form-inverse .has-success .help-block {
+	color: #45e64a;
+	opacity: 1;
+}
+.form-inverse .has-success .form-control {
+	border-bottom-color: #45e64a;
+}
+.form-inverse .has-success .form-control:focus, .form-inverse .has-success .form-control.dirty {
+	border-bottom-color: #45e64a;
+}
+.form-inverse .has-success .form-control:focus ~ label, .form-inverse .has-success .form-control.dirty ~ label {
+	color: inherit;
+}
+.form-inverse .has-success .form-control ~ label, .form-inverse .has-success .form-control ~ .form-control-line {
+	color: inherit;
+}
+.form-inverse .has-success .form-control ~ label:after, .form-inverse .has-success .form-control ~ .form-control-line:after {
+	background-color: #45e64a;
+}
+.form-inverse .has-success label, .form-inverse .has-success .control-label, .form-inverse .has-success .form-control-feedback {
+	color: #45e64a;
+}
+.form-horizontal .form-inverse .has-success label, .form-horizontal .form-inverse .has-success .control-label, .form-horizontal .form-inverse .has-success .form-control-feedback {
+	opacity: 1;
+}

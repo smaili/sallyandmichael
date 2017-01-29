@@ -1,0 +1,129 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.gridlayout {
+	width: 100%;
+}
+.gridlayout-main {
+	padding: 12px 20px;
+}
+.grid-item {
+	width: 25%;
+	padding: 0px;
+	vertical-align: top;
+	margin-bottom: -1px;
+}
+.grid-item a {
+	display: block;
+	vertical-align: middle;
+	color: #555;
+	position: relative;
+}
+.grid-content {
+	padding: 35px;
+	width: 100%;
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	background-color: #f4f4f4;
+}
+.grid-content strong {
+	display: block;
+	font-size: 20px;
+}
+.grid-content h5 {
+	margin-bottom: 15px;
+	font-weight: 700;
+}
+.grid-content p {
+	margin-bottom: 0px;
+}
+.grid-content .tagline {
+	margin: 0px;
+	margin-bottom: 10px;
+}
+.grid-item a:hover .grid-content {
+	background: #ef7b12;
+	color: #fff;
+}
+.grid-item a:hover h5 {
+	color: #fff;
+}
+.grid-item a:hover .tagline {
+	color: #aad5ff;
+}
+.grid-item-img {
+	width: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+.workdetailimg {
+	padding: 0px;
+}
+ @media screen and (max-width: 1680px) {
+.grid-item {
+	width: 24.55%;
+}
+.grid-item img {
+	width: 100%;
+	height: auto;
+}
+}
+ @media screen and (max-width: 1440px) {
+}
+ @media screen and (max-width: 1366px) {
+}
+ @media screen and (max-width: 1280px) {
+}
+ @media only screen and (max-width:1024px) {
+.gridlayout {
+	margin: 0px;
+}
+.grid-item {
+	width: 33.33%;
+}
+.grid-item-s2 {
+	width: 24%;
+}
+}
+ @media screen and (max-width: 980px) {
+.grid-content {
+	padding: 25px;
+}
+.grid-item {
+	width: 33%;
+	padding: 0px;
+}
+}
+ @media screen and (max-width: 800px) {
+.grid-item {
+	width: 50%;
+}
+.grid-item-s2 {
+	width: 32%;
+}
+}
+ @media screen and (max-width: 786px) {
+}
+ @media screen and (max-width: 640px) {
+.gridlayout-s2 {
+	padding: 12px 0px 12px 23px;
+}
+.grid-item-s2 {
+	width: 49%;
+}
+}
+ @media only screen and (max-width:480px) {
+.gridlayout {
+	margin: 0px;
+}
+}
+ @media only screen and (max-width:375px) {
+.grid-item {
+	width: 100%;
+}
+.grid-item-s2 {
+	width: 100%;
+}
+}
