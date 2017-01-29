@@ -62,7 +62,7 @@ Menu
 Home
 -----------------------*/
 .bg-home {
-  background-image: url('../img/background-home-thumb.jpg');
+  background-image: url('../img/background-home.jpg');
 }
 
 .inner-data {
@@ -86,7 +86,7 @@ Home
 Couple
 -----------------------*/
 .bg-couple {
-  background-image: url('../img/background-couple-thumb.jpg');
+  background-image: url('../img/background-couple.jpg');
 }
 
 .groom-color,
@@ -100,7 +100,7 @@ Couple
 Story
 -----------------------*/
 .bg-story {
-  background-image: url('../img/background-story-thumb.jpg');
+  background-image: url('../img/background-story.jpg');
 }
 
 .timeline:before {
@@ -124,7 +124,7 @@ Story
 Wedding
 -----------------------*/
 .bg-wedding {
-  background-image: url('../img/background-wedding-thumb.jpg');
+  background-image: url('../img/background-wedding.jpg');
 }
 
 .white-box {
@@ -170,7 +170,7 @@ Wedding
 Gifts
 -----------------------*/
 .bg-gifts {
-  background-image: url('../img/background-gifts-thumb.jpg');
+  background-image: url('../img/background-gifts.jpg');
 }
 
 .logo-box {
@@ -182,7 +182,7 @@ Gifts
 RSVP
 -----------------------*/
 .bg-rsvp {
-  background-image: url('../img/background-rsvp-thumb.jpg');
+  background-image: url('../img/background-rsvp.jpg');
 }
 
 .rsvp-form p span {
