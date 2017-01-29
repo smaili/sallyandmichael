@@ -1,0 +1,116 @@
+<div class="container-fluid bg-main-image display_none">
+  <div class="blur-img bg-story"></div>
+  <div class="page-scroll">
+    <div class="bg-main-image-overlay-2">
+      <div class="main-section-s2">
+        <div class="col-md-12">
+          <div class="page-title wow fadeInUp" data-class="fadeInUp">
+            <h2>
+              The Story
+              <span><i class="glyphicon glyphicon-heart"></i></span>
+            </h2>
+          </div>
+          <div class="clearfix"></div>
+          <div class="container display_none">
+            <ul class="timeline">
+              <li>
+                <div class="timeline-badge"><a><i class="glyphicon glyphicon-heart"></i></a></div>
+                <div class="timeline-panel wow fadeInLeft" data-class="fadeInLeft" data-wow-delay="0.7s">
+                  <div class="timeline-heading">
+                    <h3 class="timeline-title">How We Met</h3>
+                    <span class="label label-default">Jun 04, 2011</span>
+                  </div>
+                  <div class="timeline-img"> <img class="img-responsive" src="{{ url_for('static', filename='img/story-first.jpg') }}" alt="How We Met" /> </div>
+                  <div class="timeline-body">
+                    <p>
+                      We had met each other in June 2011 while Michael was living
+                      in China where he was working on a startup. Sally approached
+                      him thinking he was a lost tourist who needed help and the
+                      rest is history!
+                  </p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-badge"><a href="#" target="_blank"><i class="glyphicon glyphicon-heart"></i></a></div>
+                <div class="timeline-panel wow fadeInRight" data-class="fadeInRight" data-wow-delay="1s">
+                  <div class="timeline-heading">
+                    <h3 class="timeline-title">First Date</h3>
+                    <span class="label label-default">Oct 10, 2011</span>
+                  </div>
+                  <div class="timeline-img"> <img class="img-responsive" src="{{ url_for('static', filename='img/story-date.jpg') }}" alt="First Date" /> </div>
+                  <div class="timeline-body">
+                    <p>
+                      After several months of getting to know each other,
+                      and the occassional "raincheck" on the part of Sally,
+                      the two were finally able to go out. Though it took a while
+                      for them to spend time together, it was worth the wait.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-badge"><a><i class="glyphicon glyphicon-heart"></i></a></div>
+                <div class="timeline-panel wow fadeInLeft" data-class="fadeInLeft" data-wow-delay="1.3s">
+                  <div class="timeline-heading">
+                    <h3 class="timeline-title">Falling</h3>
+                    <span class="label label-default">July 12, 2013</span>
+                  </div>
+                  <div class="timeline-img"> <img class="img-responsive" src="{{ url_for('static', filename='img/story-falling.jpg') }}" alt="Falling In" /> </div>
+                  <div class="timeline-body">
+                    <p>
+                      Seeing each other was tough. Busy schedules, lots and lots
+                      of traveling, and Michael's move back to San Francisco were
+                      just a few things in their way. But as time went on, they
+                      would still continue to find ways to talk and see each
+                      other...and eventually began to fall for each other.
+                  </p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-badge"><a><i class="glyphicon glyphicon-heart"></i></a></div>
+                <div class="timeline-panel wow fadeInLeft" data-class="fadeInLeft" data-wow-delay="1.6s">
+                  <div class="timeline-heading">
+                    <h3 class="timeline-title">The Proposal</h3>
+                    <span class="label label-default">May 01, 2016</span>
+                  </div>
+                  <div class="ceremony-slider">
+                    <div><img class="img-responsive" src="{{ url_for('static', filename='img/story-proposal-1.jpg') }}" alt="The Proposal" /></div>
+                    <div><img class="img-responsive" src="{{ url_for('static', filename='img/story-proposal-2.jpg') }}" alt="The Proposal" /></div>
+                    <div><img class="img-responsive" src="{{ url_for('static', filename='img/story-proposal-3.jpg') }}" alt="The Proposal" /></div>
+                  </div>
+                  <div class="timeline-body">
+                    <p>
+                      Over the years, Michael soon realized that he wanted their
+                      relationship to continue, forever. He took her to Monterey
+                      for the weekend and at on the stroke of midnight, in front
+                      of the ocean, he proposed. After a few tears and smiles,
+                      she said yes.
+                  </p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-badge"><a><i class="glyphicon glyphicon-heart"></i></a></div>
+                <div class="timeline-panel wow fadeInRight" data-class="fadeInRight" data-wow-delay="1.9s">
+                  <div class="timeline-heading">
+                    <h3 class="timeline-title">Our Wedding</h3>
+                    <span class="label label-default">Jun 03, 2017</span>
+                  </div>
+                  <div class="timeline-img"> <img class="img-responsive" src="{{ url_for('static', filename='img/story-wedding.jpg') }}" alt="First Date" /> </div>
+                  <div class="timeline-body">
+                    <p>
+                      The big day!
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="clearfix no-float"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

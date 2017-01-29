@@ -1,0 +1,72 @@
+<div class="container-fluid bg-main-image display_none">
+  <div class="blur-img bg-couple"></div>
+  <div class="page-scroll">
+    <div class="bg-main-image-overlay-2">
+      <div class="main-section-s2">
+        <div class="col-md-12">
+          <div class="page-title wow fadeInUp" data-class="fadeInUp">
+            <h2>
+              The Couple
+              <span><i class="glyphicon glyphicon-heart"></i></span>
+            </h2>
+          </div>
+          <div class="container">
+            <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1 wow fadeInLeft responsive-margin couple-responsive-padding" data-class="fadeInLeft">
+              <div class="col-md-12 couple-responsive-padding">
+                <div class="the-couple groom-color text-center">
+                  <div class="the-couple-title">
+                    <p><span>Bride</span></p>
+                  </div>
+                  <div class="the-couple-img col-md-12 col-md-offset-0 col-xs-12">
+                    <div class="person-image">
+                      <img src="{{ url_for('static', filename='img/couple-sally.jpg') }}" alt="the-couple image" class="img-circle">
+                    </div>
+                  </div>
+                  <div class="the-couple-data">
+                    <h3>Sally Sun</h3>
+                    <p class="about-the-couple">
+                      I knew I ~LOVED~ him when we went to Vegas for the week of
+                      his birthday. I was quite inebriated, but we had the best
+                      time together and I remember looking at him and knowing
+                      that I wanted to be with him for the rest of my life.
+                      When he proposed, there was no doubt. I said,
+                      <br>
+                      &ldquo;Yes.&rdquo;
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1 responsive-margin wow fadeInRight couple-responsive-padding" data-class="fadeInRight">
+              <div class="col-md-12 couple-responsive-padding">
+                <div class="the-couple bride-color text-center">
+                  <div class="the-couple-title">
+                    <p><span>Groom</span></p>
+                  </div>
+                  <div class="the-couple-img col-md-12 col-md-offset-0 col-xs-12">
+                    <div class="person-image">
+                      <img src="{{ url_for('static', filename='img/couple-michael.jpg') }}" alt="the-couple image" class="img-circle">
+                    </div>
+                  </div>
+                  <div class="the-couple-data">
+                    <h3>Michael Smaili</h3>
+                    <p class="about-the-couple">
+                      The first time we went out, I knew there was something
+                      special about Sally. Not just because she could make me
+                      laugh, but her warm smile and kind personality. A few
+                      months into our relationship, I remember waking up from
+                      a nap and looking at her still asleep. I thought to
+                      myself,
+                      <br>
+                      &ldquo;She is the girl of my dreams.&rdquo;
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

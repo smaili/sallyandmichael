@@ -1,0 +1,46 @@
+{%
+  set registries = [
+    { 'name': 'amazon', 'title': 'Amazon', 'link': 'https://www.amazon.com/wedding/home' },
+    { 'name': 'beyond', 'title': 'Bed Bath & Beyond', 'link': 'https://www.bedbathandbeyond.com/store/page/Registry' },
+    { 'name': 'crate', 'title': 'Create and Barrel', 'link': 'http://www.crateandbarrel.com/gift-registry/' },
+    { 'name': 'macys', 'title': 'Macy\'s', 'link': 'https://www.macys.com/registry/' },
+  ]
+%}
+
+<div class="container-fluid bg-main-image display_none">
+  <div class="blur-img bg-gifts"></div>
+  <div class="page-scroll">
+    <div class="bg-main-image-overlay-2 ">
+      <div class="main-section-s2">
+        <div class="col-md-12">
+          <div class="page-title wow fadeInUp" data-class="fadeInUp">
+            <h2>
+              The Gifts
+              <span><i class="glyphicon glyphicon-heart"></i></span>
+            </h2>
+          </div>
+          <div class="container">
+            <div class="col-md-12 about-the-people">
+              <p class="col-md-6 col-md-offset-3">
+                Your company is our gift &mdash; we do not need anything more!
+                <br>
+                Though if you really want to, we are registered with these stores.
+              </p>
+            </div>
+          </div>
+          <div class="container">
+          {% for registry in registries %}
+            <div class="col-md-4 col-md-offset-{{ '2' if loop.index0 % 2 == 0 else '0' }} col-sm-6 col-sm-offset-0 col-xs-6 text-center wow bounceIn" data-class="bounceIn">
+              <a href="{{registry['link']}}" target="_blank" title="{{registry['title']}}">
+                <div class="logo-box">
+                  <img class="img-responsive zoomeffect" src="{{ url_for('static', filename='img/gift-%s.png' % registry['name']) }}" />
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

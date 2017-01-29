@@ -1,0 +1,72 @@
+<div class="container-fluid bg-main-image display_none">
+  <div class=" blur-img bg-home"></div>
+  <div class="page-fixed">
+    <div class="bg-main-image-overlay">
+      <div class="main-section-s2">
+        <div class=" inner-data">
+          <div class="couple-name wow fadeInUp">
+            <h1 class="wow fadeInLeft">sally </h1>
+            <span class="glyphicon glyphicon-heart"></span>
+            <h1 class="wow fadeInRight">michael </h1>
+          </div>
+          <div class="tag-line wow fadeInUp">
+            <p><span>Saturday, June 3, 2017</span></p>
+          </div>
+          <div class="clearfix"></div>
+          <div class="countdown countdown-container container"
+               data-now="{{weddingtimes['now']}}"
+               data-end="{{weddingtimes['end']}}"
+               data-border-color="rgba(240, 57, 77, .8)"
+          >
+            <div class="clock row">
+              <div class="clock-item clock-days countdown-time-value wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0.25s">
+                <div class="wrap">
+                  <div class="inner">
+                    <div id="canvas-days" class="clock-canvas"></div>
+                    <div class="text">
+                      <p class="val">0</p>
+                      <p class="type-days type-time">days</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clock-item clock-hours countdown-time-value wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0.33s">
+                <div class="wrap">
+                  <div class="inner">
+                    <div id="canvas-hours" class="clock-canvas"></div>
+                    <div class="text">
+                      <p class="val">0</p>
+                      <p class="type-hours type-time">hours</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clock-item clock-minutes countdown-time-value wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0.37s">
+                <div class="wrap">
+                  <div class="inner">
+                    <div id="canvas-minutes" class="clock-canvas"></div>
+                    <div class="text">
+                      <p class="val">0</p>
+                      <p class="type-minutes type-time">minutes</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clock-item clock-seconds countdown-time-value wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0.42s">
+                <div class="wrap">
+                  <div class="inner">
+                    <div id="canvas-seconds" class="clock-canvas"></div>
+                    <div class="text">
+                      <p class="val">0</p>
+                      <p class="type-seconds type-time">seconds</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

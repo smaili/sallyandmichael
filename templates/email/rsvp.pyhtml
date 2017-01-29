@@ -1,0 +1,29 @@
+<h1>RSVP Details</h1>
+
+<p>
+  First Name: <strong>{{ fname }}</strong>
+</p>
+
+<p>
+  Last Name: <strong>{{ lname }}</strong>
+</p>
+
+<p>
+  Phone: <strong>{{ phone }}</strong>
+</p>
+
+{% set attendingdesc = [] -%}
+{%- if attending == 0|string() -%}
+  {%- set _ = attendingdesc.append('No, I am not attending') -%}
+{%- else -%}
+  {%- set maxGuests = 11 -%}
+  {%- for i in range(maxGuests) -%}
+    {%- if attending == (i + 1)|string() -%}
+      {%- set _ = attendingdesc.append('Yes, I am attending with %s%s %s' % (i, '+' if i == (maxGuests - 1) else '', 'guest' if i == 1 else 'guests')) -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+<p>
+  Attending: <strong>{{ attendingdesc[0] if attendingdesc|length > 0 else '' }}</strong>
+</p>

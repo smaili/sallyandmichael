@@ -1,0 +1,12 @@
+{% extends "layouts/base.pyhtml" %}
+
+{% block content %}
+{% include "elements/menu.pyhtml" %}
+<div class="main-page-area">
+  <div id="pt-main" class="pt-perspective">
+    <div class="pt-page pt-page-{{page}}">
+      {% include "pages/" + page + ".pyhtml" %}
+    </div>
+  </div>
+</div>
+{% endblock %}
