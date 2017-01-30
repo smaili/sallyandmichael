@@ -5,11 +5,11 @@ $(document).on('ready', function () {
   // Vertical icon-menu active script
   $('.hamburger').on('click', function () {
     if ($('.navbar-fixed-top').css('right') == '-100px') {
-      $('.navbar-fixed-top').animate({ right: '0px' }, 'slow');
+      $('.navbar-fixed-top').css('right', 0);
     }
     else {
       if ($('.navbar-fixed-top').css('overflow-y') == 'scroll') {
-        $('.navbar-fixed-top').animate({ right: '-100px' }, 'slow');
+        $('.navbar-fixed-top').css('right', '-100px');
       }
     }
   });
@@ -164,14 +164,14 @@ $(window).load(function () {
 
   // animate
   wow.init();
-  if ($.find('.pt-page-story').length) {
-    setTimeout(function() {
-      $('.pt-page-story .timeline-panel').each(function() {
-        $(this).css('visibility', 'visible');
-        $(this).css('animation-name', $(this).attr('data-class'));
-      });
-    }, 100);
-  }
+
+  // force render invisible wow elements
+  setTimeout(function() {
+    $('.pt-page .wow').each(function() {
+      $(this).css('visibility', 'visible');
+      $(this).css('animation-name', $(this).attr('data-class'));
+    });
+  }, 100);
 
   // Countdown
   if ($.find('.countdown').length) {
