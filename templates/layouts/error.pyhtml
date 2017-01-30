@@ -1,5 +1,0 @@
-{% extends "layouts/base.pyhtml" %}
-
-{% block content %}
-{% include "error/generic.pyhtml" %}
-{% endblock %}
