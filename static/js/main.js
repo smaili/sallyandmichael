@@ -2,6 +2,10 @@
 $(document).on('ready', function () {
   'use strict';
 
+  if($('.resonsive-tab').is(':visible')) {
+    $('#dl-menu .vertical-menu').addClass('vertical-menu-responsive');
+  }
+
   // Vertical icon-menu active script
   $('.hamburger').on('click', function () {
     if ($('.navbar-fixed-top').css('right') == '-100px') {
