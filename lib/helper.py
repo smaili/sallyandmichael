@@ -79,7 +79,7 @@ def validateSelect(value, minval, maxval):
   return error
 
 
-def saveRSVP(fname, lname, phone, attending):
+def saveRSVP(targs):
   errors = {
     'fname': '',
     'lname': '',
@@ -88,10 +88,10 @@ def saveRSVP(fname, lname, phone, attending):
   }
   success = True
 
-  errors['fname'] = validateText(fname, 2, 50)
-  errors['lname'] = validateText(lname, 2, 50)
-  errors['phone'] = validateText(phone, 1, 50)
-  errors['attending'] = validateSelect(attending, 0, 11)
+  errors['fname'] = validateText(targs['fname'], 2, 50)
+  errors['lname'] = validateText(targs['lname'], 2, 50)
+  errors['phone'] = validateText(targs['phone'], 1, 50)
+  errors['attending'] = validateSelect(targs['attending'], 0, targs['MAX_GUESTS'])
 
   if errors['fname'] or errors['lname'] or errors['phone'] or errors['attending']:
     success = False

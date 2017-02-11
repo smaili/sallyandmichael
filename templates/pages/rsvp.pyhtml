@@ -70,9 +70,8 @@
                         <select id="attending" name="attending" class="form-control select2-list">
                           <option value="">Are you attending?</option>
                           <option value="0" {% if attending == 0|string() %}selected{% endif %}>No, I am not attending</option>
-                          {% set maxGuests = 11 %}
-                          {% for i in range(maxGuests) %}
-                          <option value="{{i + 1}}" {% if attending == (i + 1)|string() %}selected{% endif %}>Yes, I am attending with {{i}}{{'+' if i == (maxGuests - 1) else ''}} {{'guest' if i == 1 else 'guests'}}</option>
+                          {% for i in range(MAX_GUESTS) %}
+                          <option value="{{i + 1}}" {% if attending == (i + 1)|string() %}selected{% endif %}>Yes, attending as party of {{i + 1}}{{'+' if i == (MAX_GUESTS - 1) else ''}}</option>
                           {% endfor %}
                         </select>
                         <span class="help-block">{{errors['attending']}}</span>

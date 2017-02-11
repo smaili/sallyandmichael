@@ -16,10 +16,9 @@
 {%- if attending == 0|string() -%}
   {%- set _ = attendingdesc.append('No, I am not attending') -%}
 {%- else -%}
-  {%- set maxGuests = 11 -%}
-  {%- for i in range(maxGuests) -%}
+  {%- for i in range(MAX_GUESTS) -%}
     {%- if attending == (i + 1)|string() -%}
-      {%- set _ = attendingdesc.append('Yes, I am attending with %s%s %s' % (i, '+' if i == (maxGuests - 1) else '', 'guest' if i == 1 else 'guests')) -%}
+      {%- set _ = attendingdesc.append('Yes, put us down for %s%s %s' % (i, '+' if i == (MAX_GUESTS - 1) else '', 'guest' if i == 1 else 'guests')) -%}
     {%- endif -%}
   {%- endfor -%}
 {%- endif -%}

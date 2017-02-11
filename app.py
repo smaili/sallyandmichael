@@ -31,6 +31,8 @@ MAIL_FROM = 'no-reply@sallyandmichael.com'
 MAIL_TO = 'me@smaili.org'
 MAIL_SUBJECT = 'Wedding RSVP'
 
+MAX_GUESTS = 6
+
 #----------------------------------------
 # routes
 #----------------------------------------
@@ -69,6 +71,7 @@ def rsvp():
     'attending': '',
     'errors': {},
     'success': False,
+    'MAX_GUESTS': MAX_GUESTS,
   }
 
   if request.method == 'POST':
