@@ -49,12 +49,20 @@ def mail(mail_from, mail_to, title, targs):
     server.sendmail(mail_from, [mail_to], msg.as_string())
   except Exception, e:
     print e
-    error = 'Error trying to save your RSVP!'
+    error = 'Error trying to save your RSVP.'
   finally:
     if server:
       server.quit()
 
   return error
+
+
+def rsvpAttendingText(headcount, MAX_GUESTS):
+  if headcount == 0:
+    return 'No, not attending'
+
+  suffix = '+' if headcount == MAX_GUESTS else ''
+  return 'YES, attending as party of %s%s' % (headcount, suffix)
 
 
 def validateText(text, minlen, maxlen):

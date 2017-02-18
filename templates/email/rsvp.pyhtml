@@ -13,15 +13,11 @@
 </p>
 
 {% set attendingdesc = [] -%}
-{%- if attending == 0|string() -%}
-  {%- set _ = attendingdesc.append('No, I am not attending') -%}
-{%- else -%}
-  {%- for i in range(MAX_GUESTS) -%}
-    {%- if attending == (i + 1)|string() -%}
-      {%- set _ = attendingdesc.append('Yes, put us down for %s%s %s' % (i, '+' if i == (MAX_GUESTS - 1) else '', 'guest' if i == 1 else 'guests')) -%}
-    {%- endif -%}
-  {%- endfor -%}
-{%- endif -%}
+{%- for i in range(MAX_GUESTS + 1) -%}
+  {%- if attending == i|string() -%}
+    {%- set _ = attendingdesc.append(rsvpAttendingText(i, MAX_GUESTS)) -%}
+  {%- endif -%}
+{%- endfor -%}
 
 <p>
   Attending: <strong>{{ attendingdesc[0] if attendingdesc|length > 0 else '' }}</strong>

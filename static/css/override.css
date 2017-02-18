@@ -119,6 +119,11 @@ Story
   background: rgba(255, 255, 255, .8);
 }
 
+.timeline > li > .timeline-panel a {
+  color: #f0394d;
+  cursor: pointer;
+}
+
 
 /*
 Wedding

@@ -54,7 +54,7 @@
                 <div class="timeline-panel wow fadeInLeft" data-class="fadeInLeft" data-wow-delay="1.3s">
                   <div class="timeline-heading">
                     <h3 class="timeline-title">Falling</h3>
-                    <span class="label label-default">July 12, 2013</span>
+                    <span class="label label-default">Dec 31, 2013</span>
                   </div>
                   <div class="timeline-img"> <img class="img-responsive" src="{{ url_for('static', filename='img/story-falling.jpg') }}" alt="Falling In" /> </div>
                   <div class="timeline-body">
@@ -101,7 +101,7 @@
                   <div class="timeline-img"> <img class="img-responsive" src="{{ url_for('static', filename='img/story-wedding.jpg') }}" alt="First Date" /> </div>
                   <div class="timeline-body">
                     <p>
-                      The big day!
+                      <a href="{{ url_for('rsvp') }}">Join us</a> for the big day!
                     </p>
                   </div>
                 </div>

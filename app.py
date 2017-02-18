@@ -5,7 +5,7 @@ import datetime
 import os
 import time
 from flask import Flask, redirect, render_template, request
-from lib.helper import mail, minify, weddingdt, saveRSVP
+from lib.helper import mail, minify, weddingdt, saveRSVP, rsvpAttendingText
 
 #----------------------------------------
 # initialization
@@ -31,7 +31,7 @@ MAIL_FROM = 'no-reply@sallyandmichael.com'
 MAIL_TO = 'me@smaili.org'
 MAIL_SUBJECT = 'Wedding RSVP'
 
-MAX_GUESTS = 6
+MAX_GUESTS = 5
 
 #----------------------------------------
 # routes
@@ -72,6 +72,7 @@ def rsvp():
     'errors': {},
     'success': False,
     'MAX_GUESTS': MAX_GUESTS,
+    'rsvpAttendingText': rsvpAttendingText,
   }
 
   if request.method == 'POST':
@@ -79,7 +80,7 @@ def rsvp():
     targs['lname'] = request.form['lname']
     targs['phone'] = request.form['phone']
     targs['attending'] = request.form['attending']
-    targs.update(saveRSVP(targs['fname'], targs['lname'], targs['phone'], targs['attending']))
+    targs.update(saveRSVP(targs))
 
     if targs['success']:
       targs['mailfailed'] = mail(MAIL_FROM, MAIL_TO, MAIL_SUBJECT, targs)
@@ -107,6 +108,6 @@ def error(code):
 #----------------------------------------
 
 if __name__ == '__main__':
-  app.config.update(DEBUG = True)
+  app.config.update(DEBUG=True)
   port = int(os.environ.get('PORT', 5000))
   app.run(host='0.0.0.0', port=port)

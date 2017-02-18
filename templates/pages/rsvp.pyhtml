@@ -69,9 +69,8 @@
                       <div class="form-group {{'has-error' if errors['attending'] else ''}}">
                         <select id="attending" name="attending" class="form-control select2-list">
                           <option value="">Are you attending?</option>
-                          <option value="0" {% if attending == 0|string() %}selected{% endif %}>No, I am not attending</option>
-                          {% for i in range(MAX_GUESTS) %}
-                          <option value="{{i + 1}}" {% if attending == (i + 1)|string() %}selected{% endif %}>Yes, attending as party of {{i + 1}}{{'+' if i == (MAX_GUESTS - 1) else ''}}</option>
+                          {% for i in range(MAX_GUESTS + 1) %}
+                          <option value="{{i}}" {% if attending == i|string() %}selected{% endif %}>{{ rsvpAttendingText(i, MAX_GUESTS) }}</option>
                           {% endfor %}
                         </select>
                         <span class="help-block">{{errors['attending']}}</span>
