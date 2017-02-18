@@ -18,7 +18,7 @@
                data-end="{{weddingtimes['end']}}"
                data-border-color="rgba(240, 57, 77, .8)"
           >
-            <div class="clock row">
+            <div class="clock">
               <div class="clock-item clock-days countdown-time-value wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0.25s">
                 <div class="wrap">
                   <div class="inner">
