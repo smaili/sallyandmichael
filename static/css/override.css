@@ -208,6 +208,10 @@ RSVP
   color: #f0394d;
 }
 
+.form-group .select2-list {
+  font-size: 16px;
+}
+
 .successalert {
   margin-bottom: 0;
 }
