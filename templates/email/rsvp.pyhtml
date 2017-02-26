@@ -1,3 +1,21 @@
+{% set attendingdesc = [] -%}
+{%- for i in range(MAX_GUESTS + 1) -%}
+  {%- if attending == i|string() -%}
+    {%- set _ = attendingdesc.append(rsvpAttendingText(i, MAX_GUESTS)) -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{% if format == 'text' -%}
+RSVP Details
+
+  First Name: {{ fname }}
+
+  Last Name: <strong>{{ lname }}</strong>
+
+  Phone: <strong>{{ phone }}</strong>
+
+  Attending: {{ attendingdesc[0] if attendingdesc|length > 0 else '' }}
+{% else -%}
 <h1>RSVP Details</h1>
 
 <p>
@@ -12,13 +30,7 @@
   Phone: <strong>{{ phone }}</strong>
 </p>
 
-{% set attendingdesc = [] -%}
-{%- for i in range(MAX_GUESTS + 1) -%}
-  {%- if attending == i|string() -%}
-    {%- set _ = attendingdesc.append(rsvpAttendingText(i, MAX_GUESTS)) -%}
-  {%- endif -%}
-{%- endfor -%}
-
 <p>
   Attending: <strong>{{ attendingdesc[0] if attendingdesc|length > 0 else '' }}</strong>
 </p>
+{% endif -%}

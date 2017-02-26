@@ -4,6 +4,7 @@
 import datetime
 import smtplib
 import email.utils
+import cStringIO, mimetools, MimeWriter
 import re
 from email.mime.text import MIMEText
 from flask import render_template
@@ -31,16 +32,51 @@ def mail(mail_from, mail_to, title, targs):
   error = ''
   server = None
   try:
-    body = render_template('email/rsvp.pyhtml', **targs)
-    mail_subject = '%s - %s %s' % (title, targs['fname'], targs['lname'])
+    # prep
+    sender = email.utils.formataddr(('No Reply', mail_from))
+    recipients = email.utils.formataddr(('Michael Smaili', mail_to))
+    subject = '%s - %s %s' % (title, targs['fname'], targs['lname'])
 
-    msg = MIMEText(body, 'plain')
-    msg['To'] = email.utils.formataddr(('Michael Smaili', mail_to))
-    msg['From'] = email.utils.formataddr(('No Reply', mail_from))
-    msg['Subject'] = mail_subject
+    html = render_template('email/rsvp.pyhtml', format='html', **targs)
+    text = render_template('email/rsvp.pyhtml', format='text', **targs)
 
+    # init
+    out = cStringIO.StringIO()
+    htmlin = cStringIO.StringIO(html)
+    txtin = cStringIO.StringIO(text)
+    writer = MimeWriter.MimeWriter(out)
+
+    # headers
+    writer.addheader("From", sender)
+    writer.addheader("To", recipients)
+    writer.addheader("Subject", subject)
+    writer.addheader("X-Mailer", "SmailiMail [version 1.0]")
+    writer.addheader("MIME-Version", "1.0")
+    writer.startmultipartbody("alternative")
+    writer.flushheaders()
+
+    # text
+    subpart = writer.nextpart()
+    subpart.addheader("Content-Transfer-Encoding", "quoted-printable")
+    pout = subpart.startbody("text/plain", [("charset", 'UTF-8')])
+    mimetools.encode(txtin, pout, 'quoted-printable')
+    txtin.close()
+
+    # html
+    subpart = writer.nextpart()
+    subpart.addheader("Content-Transfer-Encoding", "quoted-printable")
+    pout = subpart.startbody("text/html", [("charset", 'UTF-8')])
+    mimetools.encode(htmlin, pout, 'quoted-printable')
+    htmlin.close()
+
+    # to string
+    writer.lastpart()
+    msg = out.getvalue()
+    out.close()
+
+    # send out
     server = smtplib.SMTP('localhost', 25, timeout=1)
-    server.sendmail(mail_from, [mail_to], msg.as_string())
+    server.sendmail(sender, recipients, msg)
   except Exception, e:
     print e
     error = 'Error trying to save your RSVP.'
