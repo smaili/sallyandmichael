@@ -6,8 +6,6 @@
 {%- endfor -%}
 
 {% if format == 'text' -%}
-RSVP Details
-
   First Name: {{ fname }}
 
   Last Name: <strong>{{ lname }}</strong>
@@ -16,8 +14,6 @@ RSVP Details
 
   Attending: {{ attendingdesc[0] if attendingdesc|length > 0 else '' }}
 {% else -%}
-<h1>RSVP Details</h1>
-
 <p>
   First Name: <strong>{{ fname }}</strong>
 </p>
