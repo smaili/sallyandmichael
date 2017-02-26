@@ -16,16 +16,10 @@ app = Flask(__name__)
 #----------------------------------------
 # constants
 #----------------------------------------
-WEDDING_DATE = {
-  'month': 6,
-  'day': 3,
-  'year': 2017,
-}
-WEDDING_DT = weddingdt(
-  WEDDING_DATE['month'],
-  WEDDING_DATE['day'],
-  WEDDING_DATE['year'],
-)
+# May 5, 2016
+WEDDING_PROPOSE_DT = weddingdt(5, 1, 2016)
+# June 3, 2017
+WEDDING_DAY_DT = weddingdt(6, 3, 2017)
 
 MAIL_FROM = 'no-reply@sallyandmichael.com'
 MAIL_TO = 'me@smaili.org'
@@ -40,8 +34,9 @@ MAX_GUESTS = 5
 @app.route('/')
 def home():
   weddingtimes = {
+    'start': int(time.mktime(WEDDING_PROPOSE_DT.timetuple())),
+    'end': int(time.mktime(WEDDING_DAY_DT.timetuple())),
     'now': int(time.mktime(datetime.datetime.today().timetuple())),
-    'end': int(time.mktime(WEDDING_DT.timetuple())),
   }
 
   return minify(render_template('layouts/default.pyhtml', page='home', weddingtimes=weddingtimes))

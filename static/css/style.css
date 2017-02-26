@@ -1055,7 +1055,7 @@ input, textarea {
 }
 .vertical-menu {
 	width: 100%;
-	height: 83px;
+	/*height: 83px; smaili*/
 	padding: 0px 40px;
 }
 .logo-s2 {

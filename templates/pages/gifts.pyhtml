@@ -13,7 +13,7 @@
 <div class="container-fluid bg-main-image display_none">
   <div class="blur-img bg-gifts"></div>
   <div class="page-scroll">
-    <div class="bg-main-image-overlay-2 ">
+    <div class="bg-main-image-overlay-2">
       <div class="main-section-s2">
         <div class="col-md-12">
           <div class="page-title wow fadeInUp" data-class="fadeInUp">

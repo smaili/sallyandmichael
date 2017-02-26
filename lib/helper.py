@@ -34,18 +34,12 @@ def mail(mail_from, mail_to, title, targs):
     body = render_template('email/rsvp.pyhtml', **targs)
     mail_subject = '%s - %s %s' % (title, targs['fname'], targs['lname'])
 
-    server = smtplib.SMTP('localhost', 25)
-    server.set_debuglevel(True)
-
     msg = MIMEText(body, 'plain')
     msg['To'] = email.utils.formataddr(('Michael Smaili', mail_to))
     msg['From'] = email.utils.formataddr(('No Reply', mail_from))
     msg['Subject'] = mail_subject
 
-    print msg['To']
-    print msg['From']
-    print msg['Subject']
-
+    server = smtplib.SMTP('localhost', 25, timeout=1)
     server.sendmail(mail_from, [mail_to], msg.as_string())
   except Exception, e:
     print e

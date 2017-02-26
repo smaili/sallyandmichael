@@ -26,12 +26,7 @@
 </div>
 <div id="dl-menu" class="section1 navbar navbar-default navbar-fixed-top">
   <div class="vertical-menu">
-    <div class="logo-s2">
-      <a href="{{ url_for('home') }}">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
-      </a>
-    </div>
-    <div class="ver-menu">
+    <div class="ver-menu pull-right">
       <ul class="dl-menu nav navbar-nav menubar-s2 horizontal_iconmenu" style="position: relative;">
         {% for item in menu %}
           <li data-animation="{{ loop.index0 + 1 }}" class="hvr-overline-from-center {{'hover_active' if page == item['page'] else ''}} menu-{{ item['page'] }}">

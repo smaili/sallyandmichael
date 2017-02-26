@@ -20,6 +20,10 @@ Menu
   border: none !important;
 }
 
+.navbar-default.scroll-bg {
+  background: rgba(255, 255, 255, .9) !important;
+}
+
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {

@@ -14,8 +14,9 @@
           </div>
           <div class="clearfix"></div>
           <div class="countdown countdown-container container"
-               data-now="{{weddingtimes['now']}}"
+               data-start="{{weddingtimes['start']}}"
                data-end="{{weddingtimes['end']}}"
+               data-now="{{weddingtimes['now']}}"
                data-border-color="rgba(240, 57, 77, .8)"
           >
             <div class="clock">

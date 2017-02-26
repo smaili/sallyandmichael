@@ -33,51 +33,14 @@ $(document).on('ready', function () {
     }
   });
 
-  // Horizontal Tab
-  if ($.find('#parentHorizontalTab').length) {
-    $('#parentHorizontalTab').easyResponsiveTabs({
-      type: 'default', //Types: default, vertical, accordion
-      width: 'auto', //auto or any width like 600px
-      fit: true, // 100% fit in a container
-      tabidentify: 'hor_1', // The tab groups identifier
-      activate: function (event) { // Callback function if tab is switched
-        var $tab = $(this);
-        var $info = $('#nested-tabInfo');
-        var $name = $('span', $info);
-        $name.text($tab.text());
-        $info.show();
-      }
-    });
-  }
-
-  // Child Tab
-  if ($.find('#ChildVerticalTab_1').length) {
-    $('#ChildVerticalTab_1').easyResponsiveTabs({
-      type: 'vertical',
-      width: 'auto',
-      fit: true,
-      tabidentify: 'ver_1', // The tab groups identifier
-      activetab_bg: null,
-      inactive_bg: null,
-      active_border_color: null,
-      active_content_border_color: null
-    });
-  }
-
-  // Vertical Tab
-  if ($.find('#parentVerticalTab').length) {
-    $('#parentVerticalTab').easyResponsiveTabs({
-      type: 'vertical', //Types: default, vertical, accordion
-      width: 'auto', //auto or any width like 600px
-      fit: true, // 100% fit in a container
-      closed: 'accordion', // Start closed if in accordion view
-      tabidentify: 'hor_1', // The tab groups identifier
-      activate: function (event) { // Callback function if tab is switched
-        var $tab = $(this);
-        var $info = $('#nested-tabInfo2');
-        var $name = $('span', $info);
-        $name.text($tab.text());
-        $info.show();
+  // big-screen scroll for couple and story pages
+  if ($.find('.bg-main-image-overlay-2').length) {
+    $('.bg-main-image-overlay-2').scroll(function() {
+      var scroll = $('.bg-main-image-overlay-2').scrollTop();
+      if (scroll > 0) {
+        $('#dl-menu').addClass('scroll-bg');
+      } else {
+        $('#dl-menu').removeClass('scroll-bg');
       }
     });
   }
