@@ -12,11 +12,6 @@
 <div class="resonsive-tab">
   <div class="header">
     <div class="container">
-      <div class="logo-responsive pull-left">
-        <a href="{{ url_for('home') }}">
-          <img class="img-responsive" src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
-        </a>
-      </div>
       <div class="hamburger pull-right">
         <img src="{{ url_for('static', filename='img/hamburger.png') }}" alt="Navicon">
       </div>
