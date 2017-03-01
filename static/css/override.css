@@ -214,6 +214,7 @@ RSVP
 
 .form-group .select2-list {
   font-size: 16px;
+  cursor: pointer;
 }
 
 .successalert {
