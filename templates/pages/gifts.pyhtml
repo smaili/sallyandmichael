@@ -1,13 +1,10 @@
 {%
   set registries = [
-    { 'name': 'amazon', 'title': 'Amazon', 'link': 'https://www.amazon.com/wedding/home' },
-    { 'name': 'beyond', 'title': 'Bed Bath & Beyond', 'link': 'https://www.bedbathandbeyond.com/store/page/Registry' },
-    { 'name': 'crate', 'title': 'Create and Barrel', 'link': 'http://www.crateandbarrel.com/gift-registry/' },
-    { 'name': 'macys', 'title': 'Macy\'s', 'link': 'https://www.macys.com/registry/' },
+    { 'name': 'amazon', 'title': 'Amazon', 'link': 'https://www.amazon.com/wedding/share/sally-michael' },
+    { 'name': 'beyond', 'title': 'Bed Bath & Beyond', 'link': 'https://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?registryId=544437748&eventType=Wedding&pwsurl=' },
+    { 'name': 'crate', 'title': 'Create and Barrel', 'link': 'https://www.crateandbarrel.com/gift-registry/michael-smaili-and-sally-sun/r5671569' },
+    { 'name': 'macys', 'title': 'Macy\'s', 'link': 'https://www.macys.com/wgl/registry/guest/6753061' },
   ]
-%}
-{%
-  set registries = []
 %}
 
 <div class="container-fluid bg-main-image display_none">
