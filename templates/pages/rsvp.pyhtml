@@ -15,7 +15,7 @@
               <div class="rsvp-form white-box wow fadeInUp col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" data-class="fadeInUp">
                 {% if not success %}
                 <p>
-                  Please fill out this form and submit by <span>April 8</span>.
+                  Please fill out this form and submit by <span>May 20</span>.
                 </p>
                 {% endif %}
                 {% if mailfailed %}
