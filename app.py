@@ -5,7 +5,7 @@ import datetime
 import os
 import time
 from flask import Flask, redirect, render_template, request
-from lib.helper import mail, minify, weddingdt, saveRSVP, rsvpAttendingText
+from lib.helper import mail, minify, todatetime, saveRSVP, rsvpAttendingText
 
 #----------------------------------------
 # initialization
@@ -17,15 +17,20 @@ app = Flask(__name__)
 # constants
 #----------------------------------------
 # May 5, 2016
-WEDDING_PROPOSE_DT = weddingdt(5, 1, 2016)
+WEDDING_PROPOSE_DT = todatetime(5, 1, 2016)
 # June 3, 2017
-WEDDING_DAY_DT = weddingdt(6, 3, 2017)
+WEDDING_DAY_DT = todatetime(6, 3, 2017)
 
+# Mail
 MAIL_FROM = 'no-reply@sallyandmichael.com'
 MAIL_TO = 'me@smaili.org'
 MAIL_SUBJECT = 'Wedding RSVP'
 
+# RSVP
 MAX_GUESTS = 5
+# May 20, 2017
+RSVP_BY_DT = todatetime(5, 20, 2017)
+CONTACT_PHONE = '(408) 605-4636'
 
 #----------------------------------------
 # routes
@@ -36,7 +41,7 @@ def home():
   weddingtimes = {
     'start': int(time.mktime(WEDDING_PROPOSE_DT.timetuple())),
     'end': int(time.mktime(WEDDING_DAY_DT.timetuple())),
-    'now': int(time.mktime(datetime.datetime.today().timetuple())),
+    'now': int(time.mktime(datetime.datetime.now().timetuple())),
   }
 
   return minify(render_template('layouts/default.pyhtml', page='home', weddingtimes=weddingtimes))
@@ -67,10 +72,13 @@ def rsvp():
     'errors': {},
     'success': False,
     'MAX_GUESTS': MAX_GUESTS,
+    'CONTACT_PHONE': CONTACT_PHONE,
     'rsvpAttendingText': rsvpAttendingText,
+    'rsvpByDate': '{d:%A}, {d:%B} {d.day}'.format(d=RSVP_BY_DT),
+    'rsvpEnabled': datetime.datetime.now() < RSVP_BY_DT,
   }
 
-  if request.method == 'POST':
+  if targs['rsvpEnabled'] and request.method == 'POST':
     targs['fname'] = request.form['fname']
     targs['lname'] = request.form['lname']
     targs['phone'] = request.form['phone']

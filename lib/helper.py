@@ -12,7 +12,7 @@ from flask import render_template
 #----------------------------------------
 # helpers
 #----------------------------------------
-def weddingdt(month, day, year, hour = 0, minutes = 0, seconds = 0):
+def todatetime(month, day, year, hour = 0, minutes = 0, seconds = 0):
   dt = datetime.datetime(year, month, day, hour, minutes, seconds)
   return dt
 
