@@ -29,7 +29,7 @@ MAIL_SUBJECT = 'Wedding RSVP'
 # RSVP
 MAX_GUESTS = 5
 # May 20, 2017
-RSVP_BY_DT = todatetime(5, 20, 2017)
+RSVP_BY_DT = todatetime(5, 15, 2017)
 CONTACT_PHONE = '(408) 605-4636'
 
 #----------------------------------------
@@ -75,7 +75,7 @@ def rsvp():
     'CONTACT_PHONE': CONTACT_PHONE,
     'rsvpAttendingText': rsvpAttendingText,
     'rsvpByDate': '{d:%A}, {d:%B} {d.day}'.format(d=RSVP_BY_DT),
-    'rsvpEnabled': datetime.datetime.now() < RSVP_BY_DT,
+    'rsvpEnabled': datetime.datetime.now() <= RSVP_BY_DT,
   }
 
   if targs['rsvpEnabled'] and request.method == 'POST':
