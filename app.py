@@ -5,7 +5,7 @@ import datetime
 import os
 import time
 from flask import Flask, redirect, render_template, request
-from lib.helper import mail, minify, todatetime, saveRSVP, rsvpAttendingText
+from lib.helper import loadGuestList, mail, minify, todatetime, saveRSVP, rsvpAttendingText
 
 #----------------------------------------
 # initialization
@@ -16,6 +16,10 @@ app = Flask(__name__)
 #----------------------------------------
 # constants
 #----------------------------------------
+# guest list path
+HERE = os.path.dirname(os.path.realpath(__file__))
+LIST_PATH = os.path.join(HERE, 'config', 'list.json')
+
 # May 5, 2016
 WEDDING_PROPOSE_DT = todatetime(5, 1, 2016)
 # June 3, 2017
@@ -90,12 +94,27 @@ def rsvp():
 
   return minify(render_template('layouts/default.pyhtml', page='rsvp', **targs))
 
+@app.route('/guests')
+def guests():
+  guests = loadGuestList(LIST_PATH)
+  stats = {}
+  stats['parties'] = sum([len(guests['invites'][key]) for key in guests['invites']])
+  stats['headcount'] = sum([sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests['invites'][key]]) for key in guests['invites']])
+  stats['capacity'] = 120
+  stats['available'] = stats['capacity'] - stats['headcount']
+  stats['headcountbreakdown'] = {}
+  for category in guests['invites']:
+    stats['headcountbreakdown'][category] = sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests['invites'][category]])
+
+  return minify(render_template('layouts/guests.pyhtml', guests=guests, stats=stats))
+
 @app.errorhandler(404)
 def error_404(e):
   return error(404)
 
 @app.errorhandler(Exception)
 def error_500(e=None):
+  print e
   return error(500)
 
 @app.route('/nginxerror.html')

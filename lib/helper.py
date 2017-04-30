@@ -4,6 +4,8 @@
 import datetime
 import smtplib
 import email.utils
+import json
+import io
 import cStringIO, mimetools, MimeWriter
 import re
 from email.mime.text import MIMEText
@@ -12,6 +14,13 @@ from flask import render_template
 #----------------------------------------
 # helpers
 #----------------------------------------
+def loadGuestList(path):
+  j = None
+  with io.open(path, 'r', encoding='utf-8') as f:
+    j = json.load(f)
+  return j
+
+
 def todatetime(month, day, year, hour = 0, minutes = 0, seconds = 0):
   dt = datetime.datetime(year, month, day, hour, minutes, seconds)
   return dt

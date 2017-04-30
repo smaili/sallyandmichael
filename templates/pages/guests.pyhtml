@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="card-header">
+    <div class="container">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Overview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Details</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="card-block">
+    <div class="container">
+      <p>
+        <strong>Parties: </strong> <span>{{ stats['parties'] }}</span>
+        <small class="form-text text-muted">Total number of groups responded</small>
+      </p>
+      <p>
+        <strong>Attending: </strong> <span>{{ stats['headcount'] }}</span>
+        <small class="form-text text-muted">Total number of persons attending</small>
+      </p>
+      <p>
+        <strong>Capacity: </strong> <span>{{ stats['capacity'] }}</span>
+        <small class="form-text text-muted">Maximum number of seats allowed</small>
+      </p>
+      <p>
+        <strong>Available: </strong> <span class="{% if stats['available'] > 0 %}text-success{% elif stats['available'] < 0 %}text-danger{% endif %}">{{ stats['available'] }}</span>
+        <small class="form-text text-muted">Total number of seats still available</small>
+      </p>
+    </div>
+  </div>
+  <div class="card-block d-none">
+    <div class="container guest-tables">
+      {% for category in guests['invites'] %}
+        <h3>{{ category|title }}</h3>
+        <small class="form-text text-muted">Total: {{ stats['headcountbreakdown'][category] }}</small>
+        <div>
+          <table class="table">
+            <thead class="thead-inverse">
+              <tr>
+                <th>#</th>
+                <th width="35%">First Name</th>
+                <th width="35%">Last Name</th>
+                <th width="30%">Phone</th>
+                <th>Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for guest in guests['invites'][category] %}
+                {% set isAttending = (guest['attending'] if '+' not in guest['attending'] else guest['attending'][:-1])|int > 0 %}
+                {% set phone = guest['phone']|replace(' ', '')|replace('-', '')|replace('+', '')|replace('(', '')|replace(')', '') %}
+                {% set phone = phone[1:] if phone.startswith('1') else phone %}
+                {% set phone = '(' + phone[:3] + ') ' + phone[3:6] + '-' + phone[6:] if phone|length > 0 else phone %}
+                <tr>
+                  <th class="{{ 'text-danger' if not isAttending else '' }}">{{ loop.index }}</th>
+                  <td class="{{ 'text-danger' if not isAttending else '' }}">{{ guest['fname']|lower|title }}</td>
+                  <td class="{{ 'text-danger' if not isAttending else '' }}">{{ guest['lname']|lower|title }}</td>
+                  <td class="{{ 'text-danger' if not isAttending else ('text-warning' if phone|length == 0 else '') }}">{{ phone if phone|length > 0 else 'N/A' }}</td>
+                  <td align="center" class="{{ 'text-success' if isAttending else 'text-danger' }}"><strong>{{ guest['attending'] }}</strong></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% if not loop.last %}<hr>{% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

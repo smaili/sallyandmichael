@@ -3,77 +3,39 @@
   <head>
     <meta charset="utf-8"></meta>
     <title>Sally & Michael</title>
-    <meta name="description" content="Getting Married!"></meta>
-    <meta name="author" content="Michael Smaili"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
-    {%
-      set css = [
-        'https://fonts.googleapis.com/css?family=Great+Vibes',
-        'https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900',
-        'css/style.css',
-        'css/bootstrap.css',
-        'css/timer.css',
-        'css/animations.css',
-        'css/component.css',
-        'css/slick.css',
-        'css/slick-theme.css',
-        'css/jquery.countdown.css',
-        'css/gridlayout.css',
-        'css/materialadmin.css',
-        'css/font-awesome.css',
-        'css/animate.css',
-        'css/hover.css',
-        'css/override.css',
-      ]
-    %}
-    {% for f in css %}
+    {% block headmeta %}
+    {% endblock %}
+
+    {% for f in headcss %}
       {% if not f.startswith('http') %}
       {% set f = url_for('static', filename=f) %}
       {% endif %}
       <link href="{{f}}" rel="stylesheet"></link>
     {% endfor %}
 
-    {%
-      set js = [
-        'js/modernizr.custom.js',
-      ]
-    %}
-    {% for f in js %}
+    {% for f in headjs %}
       {% if not f.startswith('http') %}
       {% set f = url_for('static', filename=f) %}
       {% endif %}
       <script src="{{f}}"></script>
     {% endfor %}
 
-    <style>
-      .has-error .form-control:focus ~ label, .has-error .form-control.dirty ~ label {
-      	color: #f44336;
-      }
-    </style>
-
+    {% block headextra %}
+    {% endblock %}
   </head>
   <body>
     {% block content %}
     {% endblock %}
 
-    {%
-      set js = [
-        'js/jquery-2.1.4.js',
-        'js/bootstrap.js',
-        'js/slick.js',
-        'js/easyResponsiveTabs.js',
-        'js/timer.js',
-        'js/jquery.final-countdown.js',
-        'js/jquery.dlmenu.js',
-        'js/jquery.masonarygrid.js',
-        'js/menu.js',
-        'js/wow.js',
-        'js/formValidation.js',
-        'js/main.js',
-      ]
-    %}
-    {% for f in js %}
+    {% for f in bodycss %}
+      {% if not f.startswith('http') %}
+      {% set f = url_for('static', filename=f) %}
+      {% endif %}
+      <link href="{{f}}" rel="stylesheet"></link>
+    {% endfor %}
+
+    {% for f in bodyjs %}
       {% if not f.startswith('http') %}
       {% set f = url_for('static', filename=f) %}
       {% endif %}

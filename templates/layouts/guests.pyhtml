@@ -1,0 +1,161 @@
+{% extends "layouts/base.pyhtml" %}
+
+{%
+  set headcss = [
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css',
+  ]
+%}
+
+{%
+  set bodyjs = [
+    'https://code.jquery.com/jquery-3.1.1.slim.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js',
+    'js/guests.js',
+  ]
+%}
+
+{% block headextra %}
+<style>
+  body, html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .navbar {
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.05);
+    background: #fff;
+    z-index: 1;
+  }
+
+  .navbar pre {
+    color: #000;
+    font-size: 4px;
+    margin: 0;
+    margin-right: 10px;
+    opacity: .8;
+  }
+
+  .navbar pre:hover {
+    opacity: 1;
+  }
+
+  .navbar .left-nav .nav-item {
+    border-bottom: 3px solid transparent;
+    margin-bottom: -11px;
+    margin-top: -1px;
+  }
+
+  .navbar .left-nav .nav-item.active {
+    border-bottom: 3px solid #000;
+  }
+
+  .navbar .form-inline {
+    background: #f1f1f1;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .navbar .form-inline input {
+    background: 0;
+    border-color: transparent;
+    color: #757575;
+    font: 16px/20px Roboto,sans-serif;
+    padding-left: 40px;
+  }
+
+  .navbar .form-inline img {
+    color: #757575;
+    top: 8px;
+    left: 10px;
+    position: absolute;
+    opacity: .5;
+  }
+
+  .main .table {
+    margin-bottom: 100px;
+    border-bottom: 1px solid #eceeef;
+  }
+
+  .main .table td,
+  .main .table th {
+    vertical-align: middle;
+  }
+
+  .main .table .disabled {
+    color: #636c72;
+  }
+
+  .main hr {
+    margin-bottom: 100px;
+  }
+
+  .main .guest-tables .form-text {
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .card {
+    background: none;
+    border: 0;
+  }
+
+  .card-header {
+    background: #fafbfc;
+  }
+
+  .card-header .container {
+    margin-top: 20px;
+  }
+
+  .card-header .nav-tabs .nav-link {
+    color: #54595e;
+    border-color: transparent;
+    border-width: 3px 1px 1px;    
+  }
+
+  .card-header .nav-tabs .nav-link:hover {
+    color: #222;
+  }
+
+  .card-header .nav-tabs .nav-link.active {
+    color: #000;
+    border-color: #000 rgba(0,0,0,.125) transparent;
+    border-width: 3px 1px 1px;
+  }
+
+  .form-text {
+    margin-top: -2px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-toggleable-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('guests') }}">Sally & Michael Guests</a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto left-nav">
+      </ul>
+      <form class="form-inline mr-2">
+        <input class="form-control" type="text" placeholder="Find person...">
+        <img src="{{ url_for('static', filename='img/search.svg') }}" />
+      </form>
+      <ul class="navbar-nav right-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('home') }}">Exit</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="main">
+    {% include "pages/guests.pyhtml" %}
+</div>
+{% endblock %}

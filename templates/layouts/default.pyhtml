@@ -1,5 +1,63 @@
 {% extends "layouts/base.pyhtml" %}
 
+{%
+  set headcss = [
+    'https://fonts.googleapis.com/css?family=Great+Vibes',
+    'https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900',
+    'css/style.css',
+    'css/bootstrap.css',
+    'css/timer.css',
+    'css/animations.css',
+    'css/component.css',
+    'css/slick.css',
+    'css/slick-theme.css',
+    'css/jquery.countdown.css',
+    'css/gridlayout.css',
+    'css/materialadmin.css',
+    'css/font-awesome.css',
+    'css/animate.css',
+    'css/hover.css',
+    'css/override.css',
+  ]
+%}
+
+{%
+  set headjs = [
+    'js/modernizr.custom.js',
+  ]
+%}
+
+{%
+  set bodyjs = [
+    'js/jquery-2.1.4.js',
+    'js/bootstrap.js',
+    'js/slick.js',
+    'js/easyResponsiveTabs.js',
+    'js/timer.js',
+    'js/jquery.final-countdown.js',
+    'js/jquery.dlmenu.js',
+    'js/jquery.masonarygrid.js',
+    'js/menu.js',
+    'js/wow.js',
+    'js/formValidation.js',
+    'js/main.js',
+  ]
+%}
+
+{% block headmeta %}
+<meta name="description" content="Getting Married!"></meta>
+<meta name="author" content="Michael Smaili"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+{% endblock %}
+
+{% block headextra %}
+<style>
+  .has-error .form-control:focus ~ label, .has-error .form-control.dirty ~ label {
+    color: #f44336;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 {% include "elements/menu.pyhtml" %}
 <div class="main-page-area">

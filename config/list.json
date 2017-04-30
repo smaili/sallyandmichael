@@ -1,0 +1,13 @@
+{
+  "invites": {
+    "category1": [
+      { "fname": "First", "lname": "Last", "phone": "1234567890", "attending": "1", "method": "website" }
+    ],
+    "category2": [
+      { "fname": "First", "lname": "Last", "phone": "1234567890", "attending": "1", "method": "website" }
+    ],
+    "category3": [
+      { "fname": "First", "lname": "Last", "phone": "1234567890", "attending": "1", "method": "website" }
+    ]
+  }
+}
