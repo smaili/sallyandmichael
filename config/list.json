@@ -1,4 +1,8 @@
 {
+  "login": {
+    "username": "admin",
+    "password": "secret"
+  },
   "invites": {
     "category1": [
       { "fname": "First", "lname": "Last", "phone": "1234567890", "attending": "1", "method": "website" }

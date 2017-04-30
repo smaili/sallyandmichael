@@ -2,9 +2,10 @@
 # imports
 #----------------------------------------
 import datetime
+import functools
 import os
 import time
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, Response
 from lib.helper import loadGuestList, mail, minify, todatetime, saveRSVP, rsvpAttendingText
 
 #----------------------------------------
@@ -19,6 +20,7 @@ app = Flask(__name__)
 # guest list path
 HERE = os.path.dirname(os.path.realpath(__file__))
 LIST_PATH = os.path.join(HERE, 'config', 'list.json')
+GUESTS_CONFIG = loadGuestList(LIST_PATH)
 
 # May 5, 2016
 WEDDING_PROPOSE_DT = todatetime(5, 1, 2016)
@@ -35,6 +37,28 @@ MAX_GUESTS = 5
 # May 20, 2017
 RSVP_BY_DT = todatetime(5, 15, 2017)
 CONTACT_PHONE = '(408) 605-4636'
+
+#----------------------------------------
+# helpers
+#----------------------------------------
+def check_auth(username, password):
+  guests_login = GUESTS_CONFIG['login']
+  return username == guests_login['username'] and password == guests_login['password']
+
+def authenticate():
+  return Response(
+  'Please login', 401,
+  {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+  @functools.wraps(f)
+  def decorated(*args, **kwargs):
+      auth = request.authorization
+      if not auth or not check_auth(auth.username, auth.password):
+          return authenticate()
+      return f(*args, **kwargs)
+  return decorated
+
 
 #----------------------------------------
 # routes
@@ -96,7 +120,7 @@ def rsvp():
 
 @app.route('/guests')
 def guests():
-  guests = loadGuestList(LIST_PATH)
+  guests = GUESTS_CONFIG
   stats = {}
   stats['parties'] = sum([len(guests['invites'][key]) for key in guests['invites']])
   stats['headcount'] = sum([sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests['invites'][key]]) for key in guests['invites']])
