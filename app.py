@@ -119,6 +119,7 @@ def rsvp():
   return minify(render_template('layouts/default.pyhtml', page='rsvp', **targs))
 
 @app.route('/guests')
+@requires_auth
 def guests():
   guests = GUESTS_CONFIG
   stats = {}
