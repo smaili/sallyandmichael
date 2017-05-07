@@ -22,6 +22,10 @@
         <small class="form-text text-muted">Total number of persons attending</small>
       </p>
       <p>
+        <strong>Rejections: </strong> <span>{{ stats['rejections'] }}</span>
+        <small class="form-text text-muted">Total number of parties <strong>not</strong> attending</small>
+      </p>
+      <p>
         <strong>Capacity: </strong> <span>{{ stats['capacity'] }}</span>
         <small class="form-text text-muted">Maximum number of seats allowed</small>
       </p>
