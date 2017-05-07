@@ -121,7 +121,7 @@ def rsvp():
 @app.route('/guests')
 @requires_auth
 def guests():
-  guests = GUESTS_CONFIG
+  guests = loadGuestList(LIST_PATH)
   stats = {}
   stats['parties'] = sum([len(guests['invites'][key]) for key in guests['invites']])
   stats['headcount'] = sum([sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests['invites'][key]]) for key in guests['invites']])
