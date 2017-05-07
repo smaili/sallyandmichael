@@ -22,7 +22,7 @@
         <small class="form-text text-muted">Total number of persons attending</small>
       </p>
       <p>
-        <strong>Rejections: </strong> <span>{{ stats['rejections'] }}</span>
+        <strong>Rejections: </strong> <span class="text-danger">{{ stats['rejections'] }}</span>
         <small class="form-text text-muted">Total number of parties <strong>not</strong> attending</small>
       </p>
       <p>
