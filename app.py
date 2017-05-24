@@ -124,10 +124,11 @@ def guests():
   guests = loadGuestList(LIST_PATH)
   stats = {}
   stats['parties'] = sum([len(guests['invites'][key]) for key in guests['invites']])
-  stats['headcount'] = sum([sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests['invites'][key]]) for key in guests['invites']])
+  stats['gross'] = sum([sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests['invites'][key]]) for key in guests['invites']])
+  stats['net'] = sum([sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) - int(party.get('exclude', 0)) for party in guests['invites'][key]]) for key in guests['invites']])
   stats['rejections'] = sum([sum([1 if party['attending'] == '0' else 0 for party in guests['invites'][key]]) for key in guests['invites']])
   stats['capacity'] = 120
-  stats['available'] = stats['capacity'] - stats['headcount']
+  stats['available'] = stats['capacity'] - stats['net']
   stats['headcountbreakdown'] = {}
   for category in guests['invites']:
     stats['headcountbreakdown'][category] = sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests['invites'][category]])

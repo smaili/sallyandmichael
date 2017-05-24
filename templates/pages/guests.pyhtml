@@ -18,20 +18,24 @@
         <small class="form-text text-muted">Total number of groups responded</small>
       </p>
       <p>
-        <strong>Attending: </strong> <span>{{ stats['headcount'] }}</span>
+        <strong>Gross: </strong> <span>{{ stats['gross'] }}</span>
         <small class="form-text text-muted">Total number of persons attending</small>
+      </p>
+      <p>
+        <strong>Net: </strong> <span>{{ stats['net'] }}</span>
+        <small class="form-text text-muted">Adjusted number of persons attending</small>
+      </p>
+      <p>
+        <strong>Capacity: </strong> <span>{{ stats['capacity'] }}</span>
+        <small class="form-text text-muted">Maximum number of net seats allowed</small>
+      </p>
+      <p>
+        <strong>Available: </strong> <span class="{% if stats['available'] > 0 %}text-success{% elif stats['available'] < 0 %}text-danger{% endif %}">{{ stats['available'] }}</span>
+        <small class="form-text text-muted">Total number of net seats still available</small>
       </p>
       <p>
         <strong>Rejections: </strong> <span class="text-danger">{{ stats['rejections'] }}</span>
         <small class="form-text text-muted">Total number of parties who declined</small>
-      </p>
-      <p>
-        <strong>Capacity: </strong> <span>{{ stats['capacity'] }}</span>
-        <small class="form-text text-muted">Maximum number of seats allowed</small>
-      </p>
-      <p>
-        <strong>Available: </strong> <span class="{% if stats['available'] > 0 %}text-success{% elif stats['available'] < 0 %}text-danger{% endif %}">{{ stats['available'] }}</span>
-        <small class="form-text text-muted">Total number of seats still available</small>
       </p>
     </div>
   </div>
