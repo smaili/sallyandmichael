@@ -22,7 +22,7 @@
         <small class="form-text text-muted">Total number of persons attending</small>
       </p>
       <p>
-        <strong>Net: </strong> <span>{{ stats['net'] }}</span>
+        <strong>Adjusted: </strong> <span>{{ stats['net'] }}</span>
         <small class="form-text text-muted">Adjusted number of persons attending</small>
       </p>
       <p>
