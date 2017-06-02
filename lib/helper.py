@@ -6,6 +6,7 @@ import smtplib
 import email.utils
 import json
 import io
+import pytz
 import cStringIO, mimetools, MimeWriter
 import re
 from email.mime.text import MIMEText
@@ -24,6 +25,12 @@ def loadGuestList(path):
 def todatetime(month, day, year, hour = 0, minutes = 0, seconds = 0):
   dt = datetime.datetime(year, month, day, hour, minutes, seconds)
   return dt
+
+
+def tolocaldt(dt=None, tz=None):
+  if dt is None:
+    dt = datetime.datetime.now()
+  return dt.replace(tzinfo=pytz.UTC).astimezone(pytz.timezone(tz))
 
 
 def minify(html):

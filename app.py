@@ -6,7 +6,7 @@ import functools
 import os
 import time
 from flask import Flask, redirect, render_template, request, Response
-from lib.helper import loadGuestList, mail, minify, todatetime, saveRSVP, rsvpAttendingText
+from lib.helper import loadGuestList, mail, minify, todatetime, tolocaldt, saveRSVP, rsvpAttendingText
 
 #----------------------------------------
 # initialization
@@ -18,14 +18,15 @@ app = Flask(__name__)
 # constants
 #----------------------------------------
 # guest list path
+TZ = 'US/Pacific'
 HERE = os.path.dirname(os.path.realpath(__file__))
 LIST_PATH = os.path.join(HERE, 'config', 'list.json')
 GUESTS_CONFIG = loadGuestList(LIST_PATH)
 
 # May 5, 2016
-WEDDING_PROPOSE_DT = todatetime(5, 1, 2016)
+WEDDING_PROPOSE_DT = tolocaldt(todatetime(5, 1, 2016), TZ)
 # June 3, 2017
-WEDDING_DAY_DT = todatetime(6, 3, 2017)
+WEDDING_DAY_DT = tolocaldt(todatetime(6, 3, 2017, hour=10, minutes=0, seconds=0), TZ)
 
 # Mail
 MAIL_FROM = 'no-reply@sallyandmichael.com'
@@ -35,7 +36,7 @@ MAIL_SUBJECT = 'Wedding RSVP'
 # RSVP
 MAX_GUESTS = 5
 # May 20, 2017
-RSVP_BY_DT = todatetime(5, 15, 2017)
+RSVP_BY_DT = tolocaldt(todatetime(5, 15, 2017), TZ)
 CONTACT_PHONE = '(408) 605-4636'
 
 #----------------------------------------
@@ -69,7 +70,7 @@ def home():
   weddingtimes = {
     'start': int(time.mktime(WEDDING_PROPOSE_DT.timetuple())),
     'end': int(time.mktime(WEDDING_DAY_DT.timetuple())),
-    'now': int(time.mktime(datetime.datetime.now().timetuple())),
+    'now': int(time.mktime(tolocaldt(tz=TZ).timetuple())),
   }
 
   return minify(render_template('layouts/default.pyhtml', page='home', weddingtimes=weddingtimes))
@@ -103,7 +104,7 @@ def rsvp():
     'CONTACT_PHONE': CONTACT_PHONE,
     'rsvpAttendingText': rsvpAttendingText,
     'rsvpByDate': '{d:%A}, {d:%B} {d.day}'.format(d=RSVP_BY_DT),
-    'rsvpEnabled': datetime.datetime.now() <= RSVP_BY_DT,
+    'rsvpEnabled': tolocaldt(tz=TZ) <= RSVP_BY_DT,
   }
 
   if targs['rsvpEnabled'] and request.method == 'POST':
