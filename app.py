@@ -24,9 +24,9 @@ LIST_PATH = os.path.join(HERE, 'config', 'list.json')
 GUESTS_CONFIG = loadGuestList(LIST_PATH)
 
 # May 5, 2016
-WEDDING_PROPOSE_DT = tolocaldt(todatetime(5, 1, 2016), TZ)
+WEDDING_PROPOSE_DT = tolocaldt(todatetime(5, 1, 2016, tz=TZ))
 # June 3, 2017
-WEDDING_DAY_DT = tolocaldt(todatetime(6, 3, 2017, hour=10, minutes=0, seconds=0), TZ)
+WEDDING_DAY_DT = tolocaldt(todatetime(6, 3, 2017, hour=10, minutes=0, seconds=0, tz=TZ))
 
 # Mail
 MAIL_FROM = 'no-reply@sallyandmichael.com'
@@ -36,7 +36,7 @@ MAIL_SUBJECT = 'Wedding RSVP'
 # RSVP
 MAX_GUESTS = 5
 # May 20, 2017
-RSVP_BY_DT = tolocaldt(todatetime(5, 15, 2017), TZ)
+RSVP_BY_DT = tolocaldt(todatetime(5, 15, 2017, tz=TZ))
 CONTACT_PHONE = '(408) 605-4636'
 
 #----------------------------------------

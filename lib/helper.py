@@ -22,15 +22,15 @@ def loadGuestList(path):
   return j
 
 
-def todatetime(month, day, year, hour = 0, minutes = 0, seconds = 0):
-  dt = datetime.datetime(year, month, day, hour, minutes, seconds)
+def todatetime(month, day, year, hour = 0, minutes = 0, seconds = 0, tz=None):
+  dt = datetime.datetime(year, month, day, hour, minutes, seconds, tzinfo=pytz.timezone(tz))
   return dt
 
 
 def tolocaldt(dt=None, tz=None):
   if dt is None:
-    dt = datetime.datetime.now()
-  return dt.replace(tzinfo=pytz.UTC).astimezone(pytz.timezone(tz))
+    dt = datetime.datetime.now(pytz.timezone(tz))
+  return dt
 
 
 def minify(html):
