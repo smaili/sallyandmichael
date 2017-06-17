@@ -8,6 +8,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Details</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Gifts</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -74,6 +77,43 @@
           {% if not loop.last %}<hr>{% endif %}
         </div>
       {% endfor %}
+    </div>
+  </div>
+  <div class="card-block d-none">
+    <div class="container guest-tables">
+      <h3 style="margin-bottom: 1rem;">Gifts</h3>
+      <small class="form-text text-muted">Total Cash: <strong>${{ stats['giftcash'] }}</strong></small>
+      <small class="form-text text-muted">Total Check: <strong>${{ stats['giftcheck'] }}</strong></small>
+      <small class="form-text text-muted">Total Gift Card: <strong>${{ stats['giftcard'] }}</strong></small>
+      <small class="form-text text-muted">Total Items: <strong>{{ stats['giftitem'] }}</strong></small>
+      <hr style="margin: 10px 0 20px 0;">
+      <small class="form-text text-muted">Total Money: <strong>${{ stats['giftallmoney'] }}</strong></small>
+      <small class="form-text text-muted">Total Value: <strong>${{ stats['giftall'] }}</strong></small>
+      <small class="form-text text-muted">Total Parties: <strong>{{ guests['gifts']|length }}</strong></small>
+      <div>
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th>#</th>
+              <th width="35%">Party</th>
+              <th>Gift</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for guest in guests['gifts'] %}
+              {% set gifts = guest['gifts'] %}
+              {% set hasGifts = gifts|length > 0 %}
+              <tr>
+                <th class="{{ 'text-danger' if not hasGifts else '' }}">{{ loop.index }}</th>
+                <td class="{{ 'text-danger' if not hasGifts else '' }}">{{ guest['name']|lower|title }}</td>
+                <td class="{{ 'text-danger' if not hasGifts else '' }}">{{ gifts if hasGifts else 'N/A' }}</td>
+                <td class="{{ 'text-danger' if not hasGifts else '' }}">{{ guest['address'] if guest['address'] else 'N/A' }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

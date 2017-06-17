@@ -134,6 +134,37 @@ def guests():
   for category in guests['invites']:
     stats['headcountbreakdown'][category] = sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests['invites'][category]])
 
+  def parseGift(gift, type):
+    value = 0
+    if gift.startswith('$'):
+      split = gift.split(' ')
+      splitValue = int(split[0][1:])
+      splitType = split[len(split) - 1]
+      addValue = False
+      if type == 'all':
+        addValue = True
+      elif splitType == 'Cash' and (type == 'cash' or type == 'money'):
+        addValue = True
+      elif splitType == 'Check' and (type == 'check' or type == 'money'):
+        addValue = True
+      elif splitType == 'Card' and type == 'card':
+        addValue = True
+
+      if addValue:
+        value = value + splitValue
+    else:
+      if type == 'item':
+        value = len(gift.split(','))
+
+    return value
+
+  stats['giftcash'] = sum([parseGift(guest['gifts'], 'cash') for guest in guests['gifts']])
+  stats['giftcheck'] = sum([parseGift(guest['gifts'], 'check') for guest in guests['gifts']])
+  stats['giftcard'] = sum([parseGift(guest['gifts'], 'card') for guest in guests['gifts']])
+  stats['giftallmoney'] = sum([parseGift(guest['gifts'], 'money') for guest in guests['gifts']])
+  stats['giftall'] = sum([parseGift(guest['gifts'], 'all') for guest in guests['gifts']])
+  stats['giftitem'] = sum([parseGift(guest['gifts'], 'item') for guest in guests['gifts']])
+
   return minify(render_template('layouts/guests.pyhtml', guests=guests, stats=stats))
 
 @app.errorhandler(404)

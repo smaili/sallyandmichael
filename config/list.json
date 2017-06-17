@@ -13,5 +13,11 @@
     "category3": [
       { "fname": "First", "lname": "Last", "phone": "1234567890", "attending": "1", "method": "website" }
     ]
-  }
+  },
+  "gifts": [
+    { "name": "Name 1, Name 2", "gifts": "$100 Cash", "address": "123 Address" },
+    { "name": "Name 1, Name 2", "gifts": "$100 Check", "address": "123 Address" },
+    { "name": "Name 1, Name 2", "gifts": "$100 Visa Gift Card", "address": "123 Address" },
+    { "name": "Name 1, Name 2", "gifts": "1x Napkin Holder, 1x 15 Piece Knife Set", "address": "123 Address" }
+  ]
 }
