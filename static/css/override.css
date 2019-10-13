@@ -235,8 +235,16 @@ RSVP
 
 
 /*
-Baby Shower (moved to template to avoid potential cache issues)
+Baby Shower (moved most to template to avoid potential cache issues)
 -----------------------*/
+.pt-page-babyshower .bg-babyshower {
+  background-image: url('../img/background-babyshower.jpg');
+  background-size: cover;
+}
+
+.pt-page-babyshower .white-box {
+  background: rgba(255, 255, 255, .8);
+}
 
 
 /*
