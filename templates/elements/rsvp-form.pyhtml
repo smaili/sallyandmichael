@@ -1,0 +1,80 @@
+<div class="rsvp-form white-box wow fadeInUp col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" data-class="fadeInUp">
+  {% if rsvpEnabled %}
+    {% if not success %}
+    <p>
+      Please fill out this form and submit by <span>{{ rsvpByDate }}</span>.
+    </p>
+    {% endif %}
+    {% if mailfailed %}
+    <div class="errorelert">
+      <strong>
+        {{ mailfailed }}<br><br>
+        Please call {{ CONTACT_PHONE }}
+      </strong>
+    </div>
+    {% elif success %}
+    <div class="successalert">
+      <strong>
+        {% if attending == '0' %}
+        Thank you, we've received your submission.<br>
+        Although you cannot attend, we will have you in our hearts.
+        {% else %}
+        Thank you, we've received your submission.<br>
+        Remember to mark your calendar &mdash; {{ rsvpEventDate }}.<br><br>
+        See you there!
+        {% endif %}
+      </strong>
+    </div>
+    {% endif %}
+    {% if not success %}
+    <form id="frm" class="form floating-label text-left form-validate" action="{{ rsvpFormHref }}" method="post">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group {{'has-error' if errors['fname'] else ''}}">
+            <input type="text" id="fname" class="form-control {{'dirty' if fname|length > 0 else ''}}" name="fname" value="{{fname}}" />
+            <span class="help-block">{{errors['fname']}}</span>
+            <label for="fname">First Name</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group {{'has-error' if errors['lname'] else ''}}">
+            <input type="text" id="lname" class="form-control {{'dirty' if lname|length > 0 else ''}}" name="lname" value="{{lname}}" />
+            <span class="help-block">{{errors['lname']}}</span>
+            <label for="lname">Last Name</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group {{'has-error' if errors['phone'] else ''}}">
+            <input type="text" id="phone" class="form-control {{'dirty' if phone|length > 0 else ''}}" name="phone" value="{{phone}}" />
+            <span class="help-block">{{errors['phone']}}</span>
+            <label for="phone">Phone Number</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group {{'has-error' if errors['attending'] else ''}}">
+            <select id="attending" name="attending" class="form-control select2-list">
+              <option value="">Are you attending?</option>
+              {% for i in range(MAX_GUESTS + 1) %}
+              <option value="{{i}}" {% if attending == i|string() %}selected{% endif %}>{{ rsvpAttendingText(i, MAX_GUESTS) }}</option>
+              {% endfor %}
+            </select>
+            <span class="help-block">{{errors['attending']}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="rsvp-button text-center">
+        <button type="submit" class="hvr-sweep-to-right">SUBMIT</button>
+      </div>
+    </form>
+    <p style="font-size: 15px;">
+      If you have any questions, please call <strong>{{ CONTACT_PHONE }}</strong>
+    </p>
+    {% endif %}
+  {% else %}
+    <p>
+      Reservations are now closed.
+    </p>
+  {% endif %}
+</div>

@@ -138,7 +138,7 @@
 {% block content %}
 <nav class="navbar navbar-toggleable-md navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="{{ url_for('guests') }}">Sally & Michael Guests</a>
+    <a class="navbar-brand" href="{{ url_for('guests') }}">{{ guestTitle }} Guests</a>
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto left-nav">

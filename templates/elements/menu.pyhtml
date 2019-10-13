@@ -6,6 +6,7 @@
     { 'page': 'wedding', 'title': 'Wedding' },
     { 'page': 'gifts', 'title': 'Gifts' },
     { 'page': 'rsvp', 'title': 'RSVP' },
+    { 'page': 'babyshower', 'title': 'Baby Shower' },
   ]
 %}
 

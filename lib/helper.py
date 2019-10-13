@@ -151,3 +151,49 @@ def saveRSVP(targs):
     success = False
 
   return {'errors': errors, 'success': success}
+
+
+def getGuestStats(guests_config):
+  stats = {}
+  stats['parties'] = sum([len(guests_config['invites'][key]) for key in guests_config['invites']])
+  stats['gross'] = sum([sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests_config['invites'][key]]) for key in guests_config['invites']])
+  stats['net'] = sum([sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) - int(party.get('exclude', 0)) for party in guests_config['invites'][key]]) for key in guests_config['invites']])
+  stats['rejections'] = sum([sum([1 if party['attending'] == '0' else 0 for party in guests_config['invites'][key]]) for key in guests_config['invites']])
+  stats['capacity'] = guests_config['capacity']
+  stats['available'] = stats['capacity'] - stats['net']
+  stats['headcountbreakdown'] = {}
+  for category in guests_config['invites']:
+    stats['headcountbreakdown'][category] = sum([int(party['attending'] if '+' not in party['attending'] else party['attending'][:-1]) for party in guests_config['invites'][category]])
+
+  def parseGift(gift, type):
+    value = 0
+    if gift.startswith('$'):
+      split = gift.split(' ')
+      splitValue = int(split[0][1:])
+      splitType = split[len(split) - 1]
+      addValue = False
+      if type == 'all':
+        addValue = True
+      elif splitType == 'Cash' and (type == 'cash' or type == 'money'):
+        addValue = True
+      elif splitType == 'Check' and (type == 'check' or type == 'money'):
+        addValue = True
+      elif splitType == 'Card' and type == 'card':
+        addValue = True
+
+      if addValue:
+        value = value + splitValue
+    else:
+      if type == 'item':
+        value = len(gift.split(','))
+
+    return value
+
+  stats['giftcash'] = sum([parseGift(guest['gifts'], 'cash') for guest in guests_config['gifts']])
+  stats['giftcheck'] = sum([parseGift(guest['gifts'], 'check') for guest in guests_config['gifts']])
+  stats['giftcard'] = sum([parseGift(guest['gifts'], 'card') for guest in guests_config['gifts']])
+  stats['giftallmoney'] = sum([parseGift(guest['gifts'], 'money') for guest in guests_config['gifts']])
+  stats['giftall'] = sum([parseGift(guest['gifts'], 'all') for guest in guests_config['gifts']])
+  stats['giftitem'] = sum([parseGift(guest['gifts'], 'item') for guest in guests_config['gifts']])
+
+  return stats
