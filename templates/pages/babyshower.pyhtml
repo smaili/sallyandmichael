@@ -1,4 +1,47 @@
 <style>
+.pt-page-babyshower .bg-babyshower {
+  background-image: url('../img/background-babyshower.jpg');
+  background-size: cover;
+}
+
+.pt-page-babyshower .white-box {
+  background: rgba(255, 255, 255, .8);
+}
+
+.pt-page-babyshower .ceremony-detail svg {
+  fill: #000;
+}
+
+.pt-page-babyshower .ceremony-detail h5 {
+  color: #000;
+}
+
+.pt-page-babyshower .ceremony-detail img {
+  margin-top: -2px;
+  margin-right: 5px;
+  margin-bottom: 0;
+}
+
+.pt-page-babyshower .ceremony-detail a,
+.pt-page-babyshower .about-the-people a {
+  color: #599ebb;
+  cursor: pointer;
+}
+
+.pt-page-babyshower .ceremony-detail a {
+  margin: 25px;
+}
+
+.pt-page-babyshower .iframe-wrapper {
+  border: 1px solid #fff;
+  border-radius: 3px;
+  overflow: hidden !important;
+}
+
+.pt-page-babyshower .iframe-wrapper iframe {
+  width: 100% !important;
+}
+
 .container .about-the-people ul {
   list-style: none;
   margin: 0;
