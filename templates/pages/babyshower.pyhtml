@@ -109,7 +109,7 @@
                 <div class="white-box ceremony-detail">
                   {% include 'elements/babyshower-icon.pyhtml' %}
                   <h5>baby shower</h5>
-                  <h4>2:00 pm</h4>
+                  <h4>2:00pm to 4:00pm</h4>
                   <p>
                     Lisa's Tea Treasures<br>2305 S Winchester Blvd #110<br>Campbell, CA 95008
                   </p>

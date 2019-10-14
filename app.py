@@ -45,7 +45,7 @@ CONTACT_PHONE = '(408) 605-4636'
 # Baby Shower
 BABY_SHOWER_MAX_GUESTS = 5
 # November 5, 2019
-BABY_SHOWER_RSVP_BY_DT = tolocaldt(todatetime(11, 5, 2019, tz=TZ))
+BABY_SHOWER_RSVP_BY_DT = tolocaldt(todatetime(11, 1, 2019, tz=TZ))
 BABY_SHOWER_DAY_DT = tolocaldt(todatetime(11, 16, 2019, hour=10, minutes=0, seconds=0, tz=TZ))
 BABY_SHOWER_CONTACT_PHONE = '(408) 605-4636'
 
