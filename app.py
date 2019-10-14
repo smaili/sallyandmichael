@@ -198,7 +198,9 @@ def babyshower_rsvp():
 
 @app.route('/babyshower/whenwhere')
 def babyshower_whenwhere():
-  targs = {}
+  targs = {
+    'eventDate': '{d:%A}, {d:%b} {d.day}'.format(d=BABY_SHOWER_DAY_DT),
+  }
 
   targs['page'] = 'babyshower'
   targs['section'] = 'whenwhere'

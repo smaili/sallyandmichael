@@ -108,7 +108,7 @@
               <div class="col-md-4 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 responsive-margin text-center wow fadeInUp padding-left-right-zero" data-class="fadeInUp">
                 <div class="white-box ceremony-detail">
                   {% include 'elements/babyshower-icon.pyhtml' %}
-                  <h5>baby shower</h5>
+                  <h5>{{ eventDate }}</h5>
                   <h4>2:00pm to 4:00pm</h4>
                   <p>
                     Lisa's Tea Treasures<br>2305 S Winchester Blvd #110<br>Campbell, CA 95008
