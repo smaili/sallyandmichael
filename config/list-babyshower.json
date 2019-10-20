@@ -1,24 +1,64 @@
 {
+  "gifts": [
+    {
+      "gifts": "$100 Cash",
+      "name": "Name 1, Name 2",
+      "address": "123 Address"
+    },
+    {
+      "gifts": "$100 Check",
+      "name": "Name 1, Name 2",
+      "address": "123 Address"
+    },
+    {
+      "gifts": "$100 Visa Gift Card",
+      "name": "Name 1, Name 2",
+      "address": "123 Address"
+    },
+    {
+      "gifts": "1x Napkin Holder, 1x 15 Piece Knife Set",
+      "name": "Name 1, Name 2",
+      "address": "123 Address"
+    }
+  ],
   "login": {
     "username": "admin",
     "password": "secret"
   },
+  "capacity": 20,
   "invites": {
     "category1": [
-      { "fname": "First", "lname": "Last", "phone": "1234567890", "attending": "1", "method": "website" }
-    ],
-    "category2": [
-      { "fname": "First", "lname": "Last", "phone": "1234567890", "attending": "1", "method": "website" }
+      {
+        "lname": "Last",
+        "phone": "1234567890",
+        "method": "website",
+        "fname": "First",
+        "attending": "1"
+      }
     ],
     "category3": [
-      { "fname": "First", "lname": "Last", "phone": "1234567890", "attending": "1", "method": "website" }
+      {
+        "lname": "Last",
+        "phone": "1234567890",
+        "method": "website",
+        "fname": "First",
+        "attending": "1"
+      }
+    ],
+    "category2": [
+      {
+        "lname": "Last",
+        "phone": "1234567890",
+        "method": "website",
+        "fname": "First",
+        "attending": "1"
+      }
     ]
   },
-  "gifts": [
-    { "name": "Name 1, Name 2", "gifts": "$100 Cash", "address": "123 Address" },
-    { "name": "Name 1, Name 2", "gifts": "$100 Check", "address": "123 Address" },
-    { "name": "Name 1, Name 2", "gifts": "$100 Visa Gift Card", "address": "123 Address" },
-    { "name": "Name 1, Name 2", "gifts": "1x Napkin Holder, 1x 15 Piece Knife Set", "address": "123 Address" }
-  ],
-  "capacity": 20
+  "invitations": [
+    {
+      "name": "First Last",
+      "email": "email@email.com"
+    }
+  ]
 }

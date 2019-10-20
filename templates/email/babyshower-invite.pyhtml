@@ -1,0 +1,7 @@
+<p>
+  You are invited to Sally's Baby Shower on <strong>{{ date }}</strong>.
+</p>
+
+<p>
+  Please visit our website for details: <strong>{{ website }}</strong>
+</p>

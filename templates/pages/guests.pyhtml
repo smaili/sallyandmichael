@@ -11,6 +11,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Gifts</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Invitations</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -113,6 +116,98 @@
             {% endfor %}
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+  <div class="card-block d-none">
+    <div class="container guest-tables">
+      <h3 style="margin-bottom: 1rem;">
+        Invitations
+        <button class="btn-success invite-button float-right" data-toggle="modal" data-target="#inviteModal">Send Invite</button>
+      </h3>
+      <div>
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for invitation in guests['invitations'] %}
+              <tr>
+                <th>{{ loop.index }}</th>
+                <td>{{ invitation['name']|lower|title }}</td>
+                <td>{{ invitation['email'] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="inviteModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Send Invite</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              <span>×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-success d-none"></div>
+            <div class="alert alert-danger d-none"></div>
+            <div class="row modal-group">
+              <div class="form-group col-6">
+                <label for="inputNameModal">Name</label>
+                <input type="text" name="name" id="inputNameModal" class="form-control" placeholder="Enter the name..." value="{{ invitations['name'] }}">
+                <small class="form-text text-muted">Party's name to invite.</small>
+                <small class="form-text text-danger"></small>
+              </div>
+              <div class="form-group col-6">
+                <label for="inputEmailModal">Email</label>
+                <input type="text" name="email" id="inputEmailModal" class="form-control" placeholder="Enter the party's email..." value="{{ invitations['email'] }}">
+                <small class="form-text text-muted">Part's email address to send invitation to.</small>
+                <small class="form-text text-danger"></small>
+              </div>
+            </div>
+            <div class="row modal-group">
+              <div class="form-group col-6">
+                <label for="inputCCModal">CC</label>
+                <input type="text" name="cc" id="inputCCModal" class="form-control" placeholder="Enter the CC emails..." value="{{ invitations['cc'] }}">
+                <small class="form-text text-muted">Additional email addresses to CC separated by comma.</small>
+                <small class="form-text text-danger"></small>
+              </div>
+              <div class="form-group col-6">
+                <label for="inputBCCModal">BCC</label>
+                <input type="text" name="bcc" id="inputBCCModal" class="form-control" placeholder="Enter the BCC email..." value="{{ invitations['bcc'] }}">
+                <small class="form-text text-muted">Additional email addresses to BCC separated by comma.</small>
+                <small class="form-text text-danger"></small>
+              </div>
+            </div>
+            <div class="row modal-group">
+              <div class="form-group col-12">
+                <label for="inputSubjectModal">Subject</label>
+                <input type="text" name="subject" id="inputSubjectModal" class="form-control" placeholder="Enter the subject..." value="{{ invitations['subject'] }}">
+                <small class="form-text text-muted">Email subject for the invitation.</small>
+                <small class="form-text text-danger"></small>
+              </div>
+            </div>
+            <div class=" row modal-group">
+              <div class="form-group col-12">
+                <label for="inputMessageModal">Message</label>
+                <textarea class="form-control" id="inputMessageModal" name="message" rows="7" style="resize: none;" placeholder="Enter the message..." autocorrect="false" spellcheck="false">{{ invitations['message'] }}</textarea>
+                <small class="form-text text-muted">Message of the invitation.</small>
+                <small class="form-text text-danger"></small>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" action-href="{{ invitations['inviteFormHref'] }}">Send Invitation</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

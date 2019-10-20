@@ -8,7 +8,7 @@
 
 {%
   set bodyjs = [
-    'https://code.jquery.com/jquery-3.1.1.slim.min.js',
+    'https://code.jquery.com/jquery-3.1.1.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js',
     'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js',
     'js/guests.js',
@@ -131,6 +131,43 @@
 
   .form-text {
     margin-top: -2px;
+  }
+
+  .modal {
+    background-color: rgba(255, 255, 255, .8);
+  }
+
+  .modal .modal-dialog {
+    margin-top: 2%;
+  }
+
+  .modal .modal-dialog {
+    max-width: 800px;
+  }
+
+  .modal .modal-content {
+    border-color: rgba(0,0,0,.05);
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
+    border-radius: 0;
+    padding: 0 5px 5px 5px;
+  }
+
+  .modal .modal-body {
+    padding-bottom: 0;
+  }
+
+  .modal .modal-footer {
+    border: 0;
+  }
+
+  .invite-button {
+    background: #12a92e;
+    border-color: #12a92e;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 12px;
   }
 </style>
 {% endblock %}
