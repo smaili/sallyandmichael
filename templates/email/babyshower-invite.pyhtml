@@ -5,3 +5,7 @@
 <p>
   Please visit our website for details: <strong>{{ website }}</strong>
 </p>
+
+<p>
+  <i>This is an automated message - <strong>PLEASE DO NOT REPLY TO THIS EMAIL</strong>.</i>
+</p>
