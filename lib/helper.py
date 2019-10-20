@@ -277,10 +277,10 @@ def mailInvite(mail_from, mail_to, targs):
   targs['html'] = targs['text'] = targs['message']
 
   if len(targs['cc']) > 0:
-    targs['cc'] = targs['cc'].replace(' ').split(',')
+    targs['cc'] = targs['cc'].replace(' ', '').split(',')
 
   if len(targs['bcc']) > 0:
-    targs['bcc'] = targs['bcc'].replace(' ').split(',')
+    targs['bcc'] = targs['bcc'].replace(' ', '').split(',')
 
   # need to wrap the error message since the one from mail is rsvp related
   error = mail(mail_from, mail_to, targs['subject'], targs)
