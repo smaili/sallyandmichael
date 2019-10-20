@@ -103,8 +103,8 @@ def mail(mail_from, mail_to, subject, targs):
     if 'bcc' in targs and len(targs['bcc']) > 0:
       if type(targs['bcc']) == str:
         targs['bcc'] = list(targs['bcc'])
-      for bcc in targs['bcc']:
-        writer.addheader('Bcc', bcc)
+    else:
+      targs['bcc'] = []
 
     writer.addheader("Subject", subject)
     writer.addheader("X-Mailer", "SmailiMail [version 1.0]")
@@ -133,7 +133,7 @@ def mail(mail_from, mail_to, subject, targs):
 
     # send out
     server = smtplib.SMTP('localhost', 25, timeout=1)
-    server.sendmail(sender, recipients, msg)
+    server.sendmail(sender, [recipients] + targs['bcc'], msg)
   except Exception, e:
     print e
     error = 'Error trying to save your RSVP.'
