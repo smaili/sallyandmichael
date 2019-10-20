@@ -3,5 +3,5 @@
 </p>
 
 <p>
-  Please visit our website for details: <strong>{{ website }}</strong>
+  Please visit our website for details: <strong><a href="{{ website }}">{{ website }}</a></strong>
 </p>
