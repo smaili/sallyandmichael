@@ -1,4 +1,12 @@
 <style>
+.main-section-s2.babyshower-rsvp {
+  overflow-y: scroll;
+}
+
+.main-section-s2.babyshower-rsvp .ceremony-section {
+  padding-bottom: 50px;
+}
+
 .pt-page-babyshower .ceremony-detail svg {
   fill: #000;
 }
@@ -82,7 +90,7 @@
   <div class="blur-img bg-babyshower"></div>
   <div class="page-fixed">
     <div class="bg-main-image-overlay-fixed">
-      <div class="main-section-s2">
+      <div class="main-section-s2 babyshower-{{ section }}">
         <div class="col-md-12">
           <div class="page-title wow fadeInUp" data-class="fadeInUp">
             <h2>

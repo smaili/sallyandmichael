@@ -133,6 +133,7 @@ def mail(mail_from, mail_to, subject, targs):
 
     # send out
     server = smtplib.SMTP('localhost', 25, timeout=1)
+    # ref for bcc: https://pybit.es/python-MIME-bcc.html
     server.sendmail(sender, [recipients] + targs['bcc'], msg)
   except Exception, e:
     print e
