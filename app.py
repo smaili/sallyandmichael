@@ -9,7 +9,7 @@ import time
 
 from flask import Flask, redirect, render_template, request, Response, url_for
 
-from lib.helper import loadGuestList, mailRSVP, minify, todatetime, tolocaldt, saveRSVP, rsvpAttendingText, getGuestStats, mailInvite, saveInvite, storeInvite
+from lib.helper import loadGuestList, mailRSVP, minify, todatetime, tolocaldt, nowAsSeconds, saveRSVP, rsvpAttendingText, getGuestStats, mailInvite, saveInvite, storeInvite
 
 #----------------------------------------
 # initialization
@@ -91,7 +91,7 @@ def home():
   weddingtimes = {
     'start': int(time.mktime(WEDDING_PROPOSE_DT.timetuple())),
     'end': int(time.mktime(WEDDING_DAY_DT.timetuple())),
-    'now': int(time.mktime(tolocaldt(tz=TZ).timetuple())),
+    'now': nowAsSeconds(tz=TZ),
   }
 
   return minify(render_template('layouts/default.pyhtml', page='home', weddingtimes=weddingtimes))

@@ -62,6 +62,17 @@ def tolocaldt(dt=None, tz=None):
   return dt
 
 
+def nowAsSeconds(tz=None):
+  # there seems to be some issues with mktime when we try to generate a "now" with
+  # relative timestamp so we need to manually do the calculation via utf offset
+  # to be platform agnostic
+  offset = 0
+  if tz is not None:
+    offset = int(datetime.datetime.utcnow().replace(tzinfo=pytz.utc).astimezone(pytz.timezone(tz)).utcoffset().total_seconds())
+
+  return int(time.mktime(time.gmtime())) + offset
+
+
 def minify(html):
   html = html.replace("\r\n", "\n")
   html = html.replace("\n", "")
