@@ -7,4 +7,4 @@ MarkupSafe==1.0
 pyserial==3.4
 pytz==2019.3
 virtualenv==16.0.0
-Werkzeug==0.14.1
+Werkzeug==0.15.5
